@@ -17,11 +17,32 @@ public class CharacterMotor : MonoBehaviour
     public float m_Gravity = 40.0f;
     public float m_JumpSpeed = 12.0f;
 
+    public float m_PushStrength = 5.0f;
+
     public bool m_Grounded = false;
 
+    public bool m_IsGiant = false;
     public void Start()
     {
         m_Look.m_AttachedCamera.enabled = true;
+    }
+
+    private void OnControllerColliderHit(ControllerColliderHit _hit)
+    {
+        if (m_IsGiant)
+        {
+            Vector3 horizontalVelocity = m_Velocity;
+            horizontalVelocity.y = 0.0f;
+
+            if (_hit.moveDirection.y < -0.3f)
+            {
+                return;
+            }
+
+            Rigidbody rigid = _hit.collider.GetComponent<Rigidbody>();
+
+            rigid.AddForce(horizontalVelocity * m_PushStrength);
+        }
     }
 
     public void Update()
@@ -36,8 +57,6 @@ public class CharacterMotor : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && m_Grounded)
         {
             m_Velocity.y = m_JumpSpeed;
-            Debug.Log(m_Velocity.y);
-            m_Grounded = false;
         }
 
         Vector3 inputMove = new Vector3(x, 0.0f, z);
