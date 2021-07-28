@@ -12,6 +12,7 @@ public class PickUpable : MonoBehaviour
     {
         if (_other.tag == "Giant")
         {
+            Debug.Log("yes");
             if (Input.GetKeyDown(KeyCode.Mouse1) && !m_PickedUp)
             {
                 Debug.Log("yes");
