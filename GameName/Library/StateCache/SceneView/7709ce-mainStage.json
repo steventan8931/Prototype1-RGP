@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":636.1358032226563,"y":234.0167999267578,"z":-8.590997695922852},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":207.33790588378907,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-13.745723724365235,"y":-34.55924987792969,"z":-21.816102981567384},"rotation":{"x":-0.2198840230703354,"y":0.7748330235481262,"z":-0.3646004796028137,"w":-0.46730923652648928},"size":34.85586929321289,"orthographic":false}
+>>>>>>> Steven2
