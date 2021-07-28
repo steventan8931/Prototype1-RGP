@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Giant
+  - Boy
   layers:
   - Default
   - TransparentFX
