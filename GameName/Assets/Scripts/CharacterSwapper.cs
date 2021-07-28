@@ -11,10 +11,18 @@ public class CharacterSwapper : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (m_Giant.GetComponent<Giant>().m_Controllable)
         {
-            m_IsGiant = !m_IsGiant;
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                m_IsGiant = !m_IsGiant;
+            }
         }
+        else
+        {
+            m_IsGiant = false;
+        }
+
 
         if(m_IsGiant)
         {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CharacterMotor : MonoBehaviour
 {
+    public Transform m_Model;
+
     public MouseLook m_Look;
 
     public CharacterController m_Controller;
@@ -21,7 +23,10 @@ public class CharacterMotor : MonoBehaviour
 
     public bool m_Grounded = false;
 
+    public float m_FacingAngle = 0.0f;
+
     public bool m_IsGiant = false;
+
     public void Start()
     {
         m_Look.m_AttachedCamera.enabled = true;
@@ -39,9 +44,13 @@ public class CharacterMotor : MonoBehaviour
                 return;
             }
 
-            Rigidbody rigid = _hit.collider.GetComponent<Rigidbody>();
+            if (_hit.collider.GetComponent<Rigidbody>() != null)
+            {
+                Rigidbody rigid = _hit.collider.GetComponent<Rigidbody>();
 
-            rigid.AddForce(horizontalVelocity * m_PushStrength);
+                rigid.AddForce(horizontalVelocity * m_PushStrength);
+            }
+
         }
     }
 
@@ -106,6 +115,12 @@ public class CharacterMotor : MonoBehaviour
 
         cacheY = m_Velocity.y;
         m_Velocity.y = 0.0f;
+        if (m_Velocity.magnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(m_Velocity.x, m_Velocity.z) * Mathf.Rad2Deg;
+            m_Model.localEulerAngles = new Vector3(0.0f, angle, 0.0f);
+            m_FacingAngle = angle;
+        }
         m_Velocity.y = cacheY;
     }
 }
