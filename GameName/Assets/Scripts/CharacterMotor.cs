@@ -29,6 +29,12 @@ public class CharacterMotor : MonoBehaviour
 
     public bool m_IsControl = true;
 
+    public bool m_ScoutingLeft = false;
+    public float m_ScoutTimer = 0.0f;
+    public float m_ScoutRotation = 0.0f;
+    public float m_ScoutSpeed = 10.0f;
+    public Vector2 m_ScoutRotationExtents = new Vector2(-45.0f, 45.0f);
+
     public void Start()
     {
         m_Look.m_AttachedCamera.enabled = true;
@@ -72,6 +78,32 @@ public class CharacterMotor : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) && m_Grounded)
             {
                 m_Velocity.y = m_JumpSpeed;
+            }
+        }
+        else
+        {
+            if (m_IsGiant)
+            {
+                if (m_ScoutRotation >= m_ScoutRotationExtents.y)
+                {
+                    m_ScoutingLeft = true;
+
+                }
+                if (m_ScoutRotation <= m_ScoutRotationExtents.x)
+                {
+                    m_ScoutingLeft = false;
+
+                }
+                if (m_ScoutingLeft)
+                {
+                    m_ScoutRotation -= Time.deltaTime * m_ScoutSpeed;
+                }
+                else
+                {
+                    m_ScoutRotation += Time.deltaTime * m_ScoutSpeed;
+                }
+
+                m_Model.localEulerAngles = new Vector3(0.0f, m_FacingAngle + m_ScoutRotation, 0.0f);
             }
         }
 
