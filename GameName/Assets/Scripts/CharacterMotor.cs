@@ -27,6 +27,8 @@ public class CharacterMotor : MonoBehaviour
 
     public bool m_IsGiant = false;
 
+    public bool m_IsControl = true;
+
     public void Start()
     {
         m_Look.m_AttachedCamera.enabled = true;
@@ -56,16 +58,21 @@ public class CharacterMotor : MonoBehaviour
 
     public void Update()
     {
-        m_Look.ManagedUpdate();
-
         float x = 0.0f;
-        x = Input.GetAxisRaw("Horizontal");
         float z = 0.0f;
-        z = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(KeyCode.Space) && m_Grounded)
+        if (m_IsControl)
         {
-            m_Velocity.y = m_JumpSpeed;
+            m_Look.ManagedUpdate();
+
+            x = Input.GetAxisRaw("Horizontal");
+
+            z = Input.GetAxisRaw("Vertical");
+
+            if (Input.GetKey(KeyCode.Space) && m_Grounded)
+            {
+                m_Velocity.y = m_JumpSpeed;
+            }
         }
 
         Vector3 inputMove = new Vector3(x, 0.0f, z);
