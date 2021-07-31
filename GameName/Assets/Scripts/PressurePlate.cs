@@ -13,6 +13,7 @@ public class PressurePlate : MonoBehaviour
             if (_other.GetComponent<Boy>().m_KeyCollected)
             {
                 m_DoorComponent.m_IsOpen = true;
+                _other.GetComponent<Boy>().m_RoomsCleared++;
                 _other.GetComponent<Boy>().m_KeyCollected = false;
             }
         }

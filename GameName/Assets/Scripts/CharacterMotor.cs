@@ -29,6 +29,14 @@ public class CharacterMotor : MonoBehaviour
 
     public bool m_IsControl = true;
 
+    public bool m_ScoutingLeft = false;
+    public float m_ScoutTimer = 0.0f;
+    public float m_ScoutRotation = 0.0f;
+    public float m_ScoutSpeed = 10.0f;
+    public Vector2 m_ScoutRotationExtents = new Vector2(-45.0f, 45.0f);
+
+    public Animator m_Animation;
+
     public void Start()
     {
         m_Look.m_AttachedCamera.enabled = true;
@@ -51,6 +59,11 @@ public class CharacterMotor : MonoBehaviour
                 Rigidbody rigid = _hit.collider.GetComponent<Rigidbody>();
 
                 rigid.AddForce(horizontalVelocity * m_PushStrength);
+
+                if (horizontalVelocity.x != 0)
+                {
+                    m_Animation.SetBool("Pushing", true);
+                }
             }
 
         }
@@ -69,9 +82,39 @@ public class CharacterMotor : MonoBehaviour
 
             z = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetKey(KeyCode.Space) && m_Grounded)
+            if (Input.GetKey(KeyCode.Space) && m_Grounded && !m_IsGiant)
             {
                 m_Velocity.y = m_JumpSpeed;
+            }
+        }
+        else
+        {
+            if (m_IsGiant)
+            {
+                if (GetComponent<Giant>().m_Controllable == false)
+                {
+                    if (m_ScoutRotation >= m_ScoutRotationExtents.y)
+                    {
+                        m_ScoutingLeft = true;
+
+                    }
+                    if (m_ScoutRotation <= m_ScoutRotationExtents.x)
+                    {
+                        m_ScoutingLeft = false;
+
+                    }
+                    if (m_ScoutingLeft)
+                    {
+                        m_ScoutRotation -= Time.deltaTime * m_ScoutSpeed;
+                    }
+                    else
+                    {
+                        m_ScoutRotation += Time.deltaTime * m_ScoutSpeed;
+                    }
+
+                    m_Model.localEulerAngles = new Vector3(0.0f, m_FacingAngle + m_ScoutRotation, 0.0f);
+                }
+
             }
         }
 
@@ -98,6 +141,16 @@ public class CharacterMotor : MonoBehaviour
 
         m_Velocity.y = cacheY;
         m_Velocity.y -= m_Gravity * Time.deltaTime;
+
+        if (m_Velocity.x == 0)
+        {
+            m_Animation.SetBool("Walking", false);
+            m_Animation.SetBool("Pushing", false);
+        }
+        else
+        {
+            m_Animation.SetBool("Walking", true);
+        }
 
         Vector3 trueVelocity = m_Velocity;
         trueVelocity.x *= m_MoveSpeed;

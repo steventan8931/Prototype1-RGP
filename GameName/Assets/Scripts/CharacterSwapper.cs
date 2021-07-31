@@ -13,6 +13,7 @@ public class CharacterSwapper : MonoBehaviour
     {
         if (m_Giant.GetComponent<Giant>().m_Controllable)
         {
+            m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.T))
             {
                 m_IsGiant = !m_IsGiant;
@@ -21,6 +22,7 @@ public class CharacterSwapper : MonoBehaviour
         else
         {
             m_IsGiant = false;
+            m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         }
 
 

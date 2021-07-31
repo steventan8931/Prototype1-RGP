@@ -12,10 +12,8 @@ public class PickUpable : MonoBehaviour
     {
         if (_other.tag == "Giant")
         {
-            Debug.Log("yes");
             if (Input.GetKeyDown(KeyCode.Mouse1) && !m_PickedUp)
             {
-                Debug.Log("yes");
                 m_Model.transform.position = _other.GetComponent<Giant>().m_Hands.position;
                 m_Model.transform.parent = _other.GetComponent<Giant>().m_Hands;
 
