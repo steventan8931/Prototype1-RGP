@@ -84,26 +84,30 @@ public class CharacterMotor : MonoBehaviour
         {
             if (m_IsGiant)
             {
-                if (m_ScoutRotation >= m_ScoutRotationExtents.y)
+                if (GetComponent<Giant>().m_Controllable == false)
                 {
-                    m_ScoutingLeft = true;
+                    if (m_ScoutRotation >= m_ScoutRotationExtents.y)
+                    {
+                        m_ScoutingLeft = true;
 
-                }
-                if (m_ScoutRotation <= m_ScoutRotationExtents.x)
-                {
-                    m_ScoutingLeft = false;
+                    }
+                    if (m_ScoutRotation <= m_ScoutRotationExtents.x)
+                    {
+                        m_ScoutingLeft = false;
 
-                }
-                if (m_ScoutingLeft)
-                {
-                    m_ScoutRotation -= Time.deltaTime * m_ScoutSpeed;
-                }
-                else
-                {
-                    m_ScoutRotation += Time.deltaTime * m_ScoutSpeed;
+                    }
+                    if (m_ScoutingLeft)
+                    {
+                        m_ScoutRotation -= Time.deltaTime * m_ScoutSpeed;
+                    }
+                    else
+                    {
+                        m_ScoutRotation += Time.deltaTime * m_ScoutSpeed;
+                    }
+
+                    m_Model.localEulerAngles = new Vector3(0.0f, m_FacingAngle + m_ScoutRotation, 0.0f);
                 }
 
-                m_Model.localEulerAngles = new Vector3(0.0f, m_FacingAngle + m_ScoutRotation, 0.0f);
             }
         }
 

@@ -8,9 +8,7 @@ public class ScoutingCone : MonoBehaviour
     {
         if (_other.tag == "Boy")
         {
-            _other.GetComponent<CharacterController>().enabled = false;
-            _other.transform.position = _other.GetComponent<Boy>().m_Checkpoints[_other.GetComponent<Boy>().m_RoomsCleared].position;
-            _other.GetComponent<CharacterController>().enabled = true;
+            _other.GetComponent<Boy>().m_Detected = true;
         }
     }
 
