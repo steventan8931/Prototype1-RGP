@@ -9,6 +9,8 @@ public class CharacterSwapper : MonoBehaviour
     public GameObject m_Boy;
     public GameObject m_Giant;
 
+    public GameObject m_SwapperEffectPrefab;
+
     private void Update()
     {
         if (m_Giant.GetComponent<Giant>().m_Controllable)
@@ -17,6 +19,9 @@ public class CharacterSwapper : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.T))
             {
                 m_IsGiant = !m_IsGiant;
+                Instantiate(m_SwapperEffectPrefab, transform.position, Quaternion.identity);
+                Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);
+                Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, 2f,0.0f), Quaternion.identity);
             }
         }
         else
