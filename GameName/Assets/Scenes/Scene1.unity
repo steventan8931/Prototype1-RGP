@@ -385,8 +385,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464598814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.88, y: 9.59, z: -6.22}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 9.63, y: 9.82, z: -6.22}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_Children:
   - {fileID: 75015081}
   - {fileID: 2136826732}
@@ -463,7 +463,7 @@ CharacterController:
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_SkinWidth: 0.15
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &464598818
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_DirectionalLight: {fileID: 705507994}
   m_Data: {fileID: 11400000, guid: 7e5b10016fbd31f408aa816fb2813d0b, type: 2}
   m_TimeOfDay: 0
-  m_TimeSpeed: 1
+  m_TimeSpeed: 0.01
   m_Giant: {fileID: 4192858069125860270}
   m_NightExtentsEarly: {x: 0, y: 8}
   m_NightExtentsLate: {x: 18, y: 24}
@@ -2188,10 +2188,10 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_Radius: 0.4
+  m_SlopeLimit: 0
+  m_StepOffset: 0
+  m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4192858069125860268

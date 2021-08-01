@@ -57,15 +57,12 @@ public class CharacterMotor : MonoBehaviour
             if (_hit.collider.GetComponent<Rigidbody>() != null)
             {
                 Rigidbody rigid = _hit.collider.GetComponent<Rigidbody>();
-
-                rigid.AddForce(horizontalVelocity * m_PushStrength);
-
                 if (horizontalVelocity.x != 0)
                 {
+                    rigid.AddForce(horizontalVelocity * m_PushStrength);
                     m_Animation.SetBool("Pushing", true);
                 }
             }
-
         }
     }
 
