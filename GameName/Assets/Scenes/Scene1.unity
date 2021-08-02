@@ -873,6 +873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Model: {fileID: 1446160722}
   m_PickedUp: 0
+  m_Timer: 0
 --- !u!65 &2062823066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1138,6 +1139,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6005148529629122656, guid: 138d3abb26965ec4690effeaebc423ac,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 6005148529629122656, guid: 138d3abb26965ec4690effeaebc423ac,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.91
+      objectReference: {fileID: 0}
     - target: {fileID: 7594921614306304920, guid: 138d3abb26965ec4690effeaebc423ac,
         type: 3}
       propertyPath: m_Name
