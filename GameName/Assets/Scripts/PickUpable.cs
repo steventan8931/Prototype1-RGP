@@ -12,6 +12,7 @@ public class PickUpable : MonoBehaviour
     {
         if (_other.tag == "Giant")
         {
+
             if (Input.GetKeyDown(KeyCode.Mouse1) && !m_PickedUp)
             {
                 m_Model.transform.position = _other.GetComponent<Giant>().m_Hands.position;

@@ -139,14 +139,17 @@ public class CharacterMotor : MonoBehaviour
         m_Velocity.y = cacheY;
         m_Velocity.y -= m_Gravity * Time.deltaTime;
 
-        if (m_Velocity.x == 0)
+        if (m_IsGiant)
         {
-            m_Animation.SetBool("Walking", false);
-            m_Animation.SetBool("Pushing", false);
-        }
-        else
-        {
-            m_Animation.SetBool("Walking", true);
+            if (m_Velocity.x == 0)
+            {
+                m_Animation.SetBool("Walking", false);
+                m_Animation.SetBool("Pushing", false);
+            }
+            else
+            {
+                m_Animation.SetBool("Walking", true);
+            }
         }
 
         Vector3 trueVelocity = m_Velocity;

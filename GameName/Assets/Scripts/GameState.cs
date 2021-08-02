@@ -24,7 +24,7 @@ public class GameState : MonoBehaviour
         if(m_BoyDetected)
         {
             //Give player feedback to show the player has been detected
-            Debug.Log("feedback");
+
         }
         else
         {
