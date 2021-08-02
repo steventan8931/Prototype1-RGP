@@ -367,9 +367,9 @@ GameObject:
   m_Component:
   - component: {fileID: 464598815}
   - component: {fileID: 464598816}
-  - component: {fileID: 5651786879852619684}
   - component: {fileID: 464598817}
   - component: {fileID: 464598818}
+  - component: {fileID: 464598819}
   m_Layer: 0
   m_Name: Boy
   m_TagString: Boy
@@ -485,7 +485,25 @@ MonoBehaviour:
   - {fileID: 1104021890}
   - {fileID: 1816481213}
   m_Detected: 0
-  m_RespawnDelay: 0
+  m_RespawnTimer: 0
+  m_RespawnDelay: 0.5
+--- !u!114 &464598819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464598814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e943b1cd4ac054bb8bf731e7cd6a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGiant: 0
+  m_Boy: {fileID: 464598814}
+  m_Giant: {fileID: 4192858069125860268}
+  m_SwapperEffectPrefab: {fileID: 3125394049994754764, guid: 4494f1081ed15804589f9867f66d2773,
+    type: 3}
 --- !u!1 &483487731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1188239862}
   - component: {fileID: 1188239863}
+  - component: {fileID: 1188239861}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1200,6 +1219,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1188239861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188239860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e530bd5184ed9114a8599e3401b85675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Boy: {fileID: 464598818}
+  m_GameWin: 0
+  m_BoyDetected: 0
 --- !u!4 &1188239862
 Transform:
   m_ObjectHideFlags: 0
@@ -1229,7 +1263,7 @@ MonoBehaviour:
   m_DirectionalLight: {fileID: 705507994}
   m_Data: {fileID: 11400000, guid: 7e5b10016fbd31f408aa816fb2813d0b, type: 2}
   m_TimeOfDay: 0
-  m_TimeSpeed: 0.01
+  m_TimeSpeed: 1
   m_Giant: {fileID: 4192858069125860270}
   m_NightExtentsEarly: {x: 0, y: 8}
   m_NightExtentsLate: {x: 18, y: 24}
@@ -2204,9 +2238,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4192858069125860269}
   - component: {fileID: 4192858069125860242}
-  - component: {fileID: 8385465062781197078}
   - component: {fileID: 4192858069125860243}
   - component: {fileID: 4192858069125860270}
+  - component: {fileID: 4192858069125860271}
   m_Layer: 0
   m_Name: Giant
   m_TagString: Giant
@@ -2244,24 +2278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Controllable: 1
   m_Hands: {fileID: 1783216212}
---- !u!114 &5651786879852619684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464598814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e943b1cd4ac054bb8bf731e7cd6a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGiant: 0
-  m_Boy: {fileID: 464598814}
-  m_Giant: {fileID: 4192858069125860268}
-  m_SwapperEffectPrefab: {fileID: 3125394049994754764, guid: 4494f1081ed15804589f9867f66d2773,
-    type: 3}
---- !u!114 &8385465062781197078
+--- !u!114 &4192858069125860271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
