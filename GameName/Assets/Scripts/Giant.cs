@@ -13,6 +13,7 @@ public class Giant : MonoBehaviour
     {
         if (m_Hands.childCount > 0)
         {
+            GetComponent<CharacterMotor>().m_Animation.SetBool("Pushing", true);
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 Debug.Log("release");

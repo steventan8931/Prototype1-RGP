@@ -8,14 +8,13 @@ public class PickUpable : MonoBehaviour
 
     public bool m_PickedUp = false;
 
+    public float m_Timer = 0.0f;
     private void OnTriggerStay(Collider _other)
     {
         if (_other.tag == "Giant")
         {
-            Debug.Log("yes");
             if (Input.GetKeyDown(KeyCode.Mouse1) && !m_PickedUp)
             {
-                Debug.Log("yes");
                 m_Model.transform.position = _other.GetComponent<Giant>().m_Hands.position;
                 m_Model.transform.parent = _other.GetComponent<Giant>().m_Hands;
 
