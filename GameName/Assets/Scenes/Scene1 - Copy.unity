@@ -767,6 +767,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1096034464}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1723775888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723775886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b8fc264e5e41e4c9e2f0cc68806de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsBig: 0
 --- !u!64 &1723775890
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1145,6 +1158,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2934717439318261032, guid: 57ef556653848fe4690aad7bfc059185,
         type: 3}
+    - target: {fileID: 6005148528107851488, guid: 138d3abb26965ec4690effeaebc423ac,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b62915ac88b35c942a620906b373c2d7, type: 2}
     - target: {fileID: 6005148529629122656, guid: 138d3abb26965ec4690effeaebc423ac,
         type: 3}
       propertyPath: m_LocalPosition.y

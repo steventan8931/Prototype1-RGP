@@ -60,7 +60,18 @@ public class CharacterMotor : MonoBehaviour
                 if (horizontalVelocity.x != 0)
                 {
                     rigid.AddForce(horizontalVelocity * m_PushStrength);
-                    m_Animation.SetBool("Pushing", true);
+                    if (_hit.collider.GetComponent<PushableObject>().m_IsBig == false)
+                    {
+                        Debug.Log("pushing low");
+                        m_Animation.SetBool("PushLow", true);
+                    }
+                    else
+                    {
+                        Debug.Log("pushing high");
+
+                        m_Animation.SetBool("PushHigh", true);
+                    }
+
                 }
             }
         }
@@ -144,7 +155,8 @@ public class CharacterMotor : MonoBehaviour
             if (m_Velocity.x == 0)
             {
                 m_Animation.SetBool("Walking", false);
-                m_Animation.SetBool("Pushing", false);
+                m_Animation.SetBool("PushHigh", false);
+                m_Animation.SetBool("PushLow", false);
             }
             else
             {
