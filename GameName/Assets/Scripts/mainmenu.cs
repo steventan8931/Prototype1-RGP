@@ -17,7 +17,13 @@ public class mainmenu : MonoBehaviour
         Invoke("loadscene", transistionTime);
     }
        
+    public void quitgame()
+    {
         
+         Application.Quit();
+        
+    }
+  
 
     public void loadscene()
     {
