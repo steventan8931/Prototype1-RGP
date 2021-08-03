@@ -1139,6 +1139,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2401641303707984210, guid: 138d3abb26965ec4690effeaebc423ac,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2934717439318261032, guid: 57ef556653848fe4690aad7bfc059185,
+        type: 3}
     - target: {fileID: 6005148529629122656, guid: 138d3abb26965ec4690effeaebc423ac,
         type: 3}
       propertyPath: m_LocalPosition.y
