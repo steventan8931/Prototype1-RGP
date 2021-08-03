@@ -4079,6 +4079,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boy: {fileID: 464598814}
   giant: {fileID: 4192858069125860268}
+  boyIcon: {fileID: 728810550}
+  giantIcon: {fileID: 377934849}
   GameManager: {fileID: 1188239860}
   WinUI: {fileID: 634845810}
   boyscr: {fileID: 464598818}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class InGameScr : MonoBehaviour
 {
     public GameObject boy, giant;
+    public GameObject boyIcon, giantIcon;
     public GameObject GameManager;//get the game manager object
     public GameObject WinUI;
     public Boy boyscr;
@@ -31,9 +32,25 @@ public class InGameScr : MonoBehaviour
         }
     }
 
+    public void checkChara()
+    {
+        if(boy.GetComponent<CharacterSwapper>().m_IsGiant)
+        {
+            boyIcon.GetComponent<CanvasGroup>().alpha = 0.4F;
+            giantIcon.GetComponent<CanvasGroup>().alpha = 1F;
+        }
+        else
+        {
+            boyIcon.GetComponent<CanvasGroup>().alpha = 1F;
+            giantIcon.GetComponent<CanvasGroup>().alpha = 0.4F;
+        }
+    }
+
     public void Update()
     {
+        checkChara();
         checkDetect();
         checkWin();
+
     }
 }
