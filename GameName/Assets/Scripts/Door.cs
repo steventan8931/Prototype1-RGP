@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     public int m_KeysCollected = 0;
 
     public Transform m_Pivot;
+    public float m_RotationY = 90.0f;
 
     public float m_DoorRotateTimer = 0.0f;
 
@@ -17,14 +18,14 @@ public class Door : MonoBehaviour
         if (m_IsOpen && m_DoorRotateTimer <= 1.0f)
         {
             m_DoorRotateTimer += Time.deltaTime;
-            float YRotation = Mathf.Lerp(0.0f, 90.0f, m_DoorRotateTimer);
+            float YRotation = Mathf.Lerp(0.0f, m_RotationY, m_DoorRotateTimer);
             m_Pivot.rotation = Quaternion.Euler(0.0f, YRotation, 0.0f);
         }
 
         if (!m_IsOpen && m_DoorRotateTimer >= 0.0f)
         {
             m_DoorRotateTimer -= Time.deltaTime;
-            float YRotation = Mathf.Lerp(0.0f, 90.0f, m_DoorRotateTimer);
+            float YRotation = Mathf.Lerp(0.0f, m_RotationY, m_DoorRotateTimer);
             m_Pivot.rotation = Quaternion.Euler(0.0f, YRotation, 0.0f);
         }
     }

@@ -57,15 +57,23 @@ public class CharacterMotor : MonoBehaviour
             if (_hit.collider.GetComponent<Rigidbody>() != null)
             {
                 Rigidbody rigid = _hit.collider.GetComponent<Rigidbody>();
-
-                rigid.AddForce(horizontalVelocity * m_PushStrength);
-
                 if (horizontalVelocity.x != 0)
                 {
-                    m_Animation.SetBool("Pushing", true);
+                    rigid.AddForce(horizontalVelocity * m_PushStrength);
+                    if (_hit.collider.GetComponent<PushableObject>() != null)
+                    {
+                        if (_hit.collider.GetComponent<PushableObject>().m_IsBig == false)
+                        {
+                            m_Animation.SetBool("PushLow", true);
+                        }
+                        else
+                        {
+                            m_Animation.SetBool("PushHigh", true);
+                        }
+                    }
+
                 }
             }
-
         }
     }
 
@@ -142,14 +150,18 @@ public class CharacterMotor : MonoBehaviour
         m_Velocity.y = cacheY;
         m_Velocity.y -= m_Gravity * Time.deltaTime;
 
-        if (m_Velocity.x == 0)
+        if (m_IsGiant)
         {
-            m_Animation.SetBool("Walking", false);
-            m_Animation.SetBool("Pushing", false);
-        }
-        else
-        {
-            m_Animation.SetBool("Walking", true);
+            if (m_Velocity.x == 0)
+            {
+                m_Animation.SetBool("Walking", false);
+                m_Animation.SetBool("PushHigh", false);
+                m_Animation.SetBool("PushLow", false);
+            }
+            else
+            {
+                m_Animation.SetBool("Walking", true);
+            }
         }
 
         Vector3 trueVelocity = m_Velocity;
