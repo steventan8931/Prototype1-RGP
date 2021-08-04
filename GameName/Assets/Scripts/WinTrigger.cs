@@ -10,24 +10,22 @@ public class WinTrigger : MonoBehaviour
     {
         if (_other.tag == "Boy")
         {
-
-            _other.GetComponent<CharacterMotor>().m_Look.m_CursorLocked = false;
-            _other.GetComponent<CharacterMotor>().m_Look.LockCursor();
-            _other.GetComponent<CharacterMotor>().m_IsControl = false;
-            _other.GetComponent<CharacterSwapper>().enabled = false;
-            _other.GetComponent<Boy>().m_GameWon = true;
+            m_AudioSources = FindObjectsOfType<AudioSource>();
             for (int i = 0; i < m_AudioSources.Length; i++)
             {
                 m_AudioSources[i].Stop();
             }
+            _other.GetComponent<CharacterMotor>().m_Look.m_CursorLocked = false;
+            _other.GetComponent<CharacterMotor>().m_Look.LockCursor();
+            _other.GetComponent<CharacterMotor>().enabled = false;
+            _other.GetComponent<CharacterSwapper>().enabled = false;
+            _other.GetComponent<Boy>().m_GameWon = true;
+
 
         }
     }
 
-    private void Start()
-    {
-        m_AudioSources = FindObjectsOfType<AudioSource>();
-    }
+
 
 
 }
