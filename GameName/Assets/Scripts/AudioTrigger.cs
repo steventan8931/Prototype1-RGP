@@ -12,6 +12,6 @@ public class AudioTrigger : MonoBehaviour
         {
             m_Audio.Play();
         }
-
     }
+
 }

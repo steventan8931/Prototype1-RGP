@@ -11,6 +11,8 @@ public class CharacterSwapper : MonoBehaviour
 
     public GameObject m_SwapperEffectPrefab;
 
+    public AudioSource m_SwapSound;
+
     private void Update()
     {
         if (m_Giant.GetComponent<Giant>().m_Controllable)
@@ -18,6 +20,7 @@ public class CharacterSwapper : MonoBehaviour
             m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.T))
             {
+                m_SwapSound.Play();
                 m_IsGiant = !m_IsGiant;
                 Instantiate(m_SwapperEffectPrefab, transform.position, Quaternion.identity);
                 Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);

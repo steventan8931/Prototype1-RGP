@@ -22,6 +22,7 @@ public class Boy : MonoBehaviour
 
     public ScoutingCone m_ScoutingScone;
 
+
     private void Update()
     {
         if (m_Detected || m_Killed)

@@ -40,7 +40,8 @@ public class CharacterMotor : MonoBehaviour
     public bool m_JumpPressed = false;
     public float m_JumpDelay = 0.2f;
     public float m_JumpDelayTimer = 0.0f;
-    public bool m_IsChanging = false;
+
+    public AudioSource m_JumpSound;
 
     public void Start()
     {
@@ -100,6 +101,7 @@ public class CharacterMotor : MonoBehaviour
                 m_JumpDelayTimer += Time.deltaTime;
                 if (m_JumpDelayTimer > m_JumpDelay)
                 {
+                    m_JumpSound.Play();
                     m_Velocity.y = m_JumpSpeed;
                 }
             }
