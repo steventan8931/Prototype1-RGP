@@ -17,4 +17,9 @@ public class WinTrigger : MonoBehaviour
 
         }
     }
+
+    private void OnTriggerStay(Collider _other)
+    {
+        _other.transform.GetChild(1).GetComponent<MouseLook>().ManagedUpdate();
+    }
 }

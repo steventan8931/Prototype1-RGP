@@ -111,14 +111,6 @@ public class CharacterMotor : MonoBehaviour
                 m_JumpPressed = true;
 
             }
-
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                //m_Animation.ResetTrigger("Jump");
-            }
-
-
-
         }
         else
         {
