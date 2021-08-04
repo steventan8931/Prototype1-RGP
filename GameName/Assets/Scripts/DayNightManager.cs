@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DayNightManager : MonoBehaviour
 {
+    public AudioSource m_Audio;
     public Light m_DirectionalLight;
     public DayNightData m_Data;
     public float m_TimeOfDay = 0.0f;
@@ -15,7 +16,6 @@ public class DayNightManager : MonoBehaviour
     public Vector2 m_NightExtentsLate = new Vector2(18.0f, 24.0f);
     private void Update()
     {
-
         if (m_TimeOfDay > m_NightExtentsEarly.x && m_TimeOfDay < m_NightExtentsEarly.y)
         {
             m_Giant.m_Controllable = true;
@@ -27,6 +27,7 @@ public class DayNightManager : MonoBehaviour
         else
         {
             m_Giant.m_Controllable = false;
+            m_Audio.Play();
         }
 
         m_TimeOfDay += Time.deltaTime * m_TimeSpeed;

@@ -11,15 +11,12 @@ public class WinTrigger : MonoBehaviour
 
             _other.GetComponent<CharacterMotor>().m_Look.m_CursorLocked = false;
             _other.GetComponent<CharacterMotor>().m_Look.LockCursor();
-            _other.GetComponent<CharacterMotor>().enabled = false;
+            _other.GetComponent<CharacterMotor>().m_IsControl = false;
             _other.GetComponent<CharacterSwapper>().enabled = false;
             _other.GetComponent<Boy>().m_GameWon = true;
 
         }
     }
 
-    private void OnTriggerStay(Collider _other)
-    {
-        _other.transform.GetChild(1).GetComponent<MouseLook>().ManagedUpdate();
-    }
+
 }

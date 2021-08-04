@@ -12,7 +12,6 @@ public class DrawOpener : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
-                Debug.Log("enter");
                 m_Drawer.m_Open = true;
             }
         }

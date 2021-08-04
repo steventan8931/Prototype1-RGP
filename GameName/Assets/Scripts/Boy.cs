@@ -20,10 +20,13 @@ public class Boy : MonoBehaviour
 
     public Transform m_Hands;
 
+    public ScoutingCone m_ScoutingScone;
+
     private void Update()
     {
         if (m_Detected || m_Killed)
         {
+
             m_RespawnTimer += Time.deltaTime;
             if (m_RespawnTimer > m_RespawnDelay)
             {
@@ -33,6 +36,7 @@ public class Boy : MonoBehaviour
                 m_RespawnTimer = 0;
                 m_Detected = false;
                 m_Killed = false;
+                m_ScoutingScone.m_Audio.Stop();
             }
         }
 
