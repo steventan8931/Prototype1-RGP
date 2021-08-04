@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class WinScr : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject WinUi;
+    public GameObject Manager;
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        if(Manager.GetComponent<GameState>().m_GameWin)
+        {
+            WinUi.SetActive(true);
+        }
     }
 }
