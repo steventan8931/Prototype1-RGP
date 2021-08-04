@@ -37,6 +37,11 @@ public class CharacterMotor : MonoBehaviour
 
     public Animator m_Animation;
 
+    public bool m_JumpPressed = false;
+    public float m_JumpDelay = 0.2f;
+    public float m_JumpDelayTimer = 0.0f;
+    public bool m_IsChanging = false;
+
     public void Start()
     {
         m_Look.m_AttachedCamera.enabled = true;
@@ -90,10 +95,30 @@ public class CharacterMotor : MonoBehaviour
 
             z = Input.GetAxisRaw("Vertical");
 
-            if (Input.GetKey(KeyCode.Space) && m_Grounded && !m_IsGiant)
+            if (m_JumpPressed)
             {
-                m_Velocity.y = m_JumpSpeed;
+                m_JumpDelayTimer += Time.deltaTime;
+                if (m_JumpDelayTimer > m_JumpDelay)
+                {
+                    m_Velocity.y = m_JumpSpeed;
+                }
             }
+
+            if (Input.GetKeyDown(KeyCode.Space) && m_Grounded && !m_IsGiant && m_JumpDelayTimer <= 0.0f)
+            {
+                m_Animation.ResetTrigger("Jump");
+                m_Animation.SetTrigger("Jump");
+                m_JumpPressed = true;
+
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                //m_Animation.ResetTrigger("Jump");
+            }
+
+
+
         }
         else
         {
@@ -163,6 +188,18 @@ public class CharacterMotor : MonoBehaviour
                 m_Animation.SetBool("Walking", true);
             }
         }
+        else
+        {
+            if (m_Velocity.x == 0)
+            {
+                m_Animation.SetBool("Running", false);
+                GetComponent<CharacterMotor>().m_Animation.SetBool("Pushing", false);
+            }
+            else
+            {
+                m_Animation.SetBool("Running", true);
+            }
+        }
 
         Vector3 trueVelocity = m_Velocity;
         trueVelocity.x *= m_MoveSpeed;
@@ -178,6 +215,9 @@ public class CharacterMotor : MonoBehaviour
         else
         {
             m_Grounded = false;
+            m_JumpPressed = false;
+            m_JumpDelayTimer = 0;
+
         }
 
         if ((m_Controller.collisionFlags & CollisionFlags.Above) != 0)
@@ -194,5 +234,7 @@ public class CharacterMotor : MonoBehaviour
             m_FacingAngle = angle;
         }
         m_Velocity.y = cacheY;
+
+
     }
 }

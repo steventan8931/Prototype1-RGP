@@ -39,10 +39,9 @@ public class Boy : MonoBehaviour
         //Pick Up
         if (m_Hands.childCount > 0)
         {
-            //GetComponent<CharacterMotor>().m_Animation.SetBool("PushHigh", true);
+            GetComponent<CharacterMotor>().m_Animation.SetBool("Pushing", true);
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Debug.Log("release");
                 m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 if (m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_RotationLocked)
                 {
