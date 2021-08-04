@@ -11,6 +11,7 @@ public class CharacterSwapper : MonoBehaviour
 
     public GameObject m_SwapperEffectPrefab;
 
+
     private void Update()
     {
         if (m_Giant.GetComponent<Giant>().m_Controllable)

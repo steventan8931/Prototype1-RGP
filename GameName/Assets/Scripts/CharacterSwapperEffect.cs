@@ -11,6 +11,7 @@ public class CharacterSwapperEffect : MonoBehaviour
         m_Swapper = FindObjectOfType<CharacterSwapper>();
     }
 
+
     private void Update()
     {
         if (m_Swapper.m_IsGiant)

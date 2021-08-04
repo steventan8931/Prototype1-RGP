@@ -5,6 +5,7 @@ using UnityEngine;
 public class DrawOpener : MonoBehaviour
 {
     public Drawer m_Drawer;
+    public AudioSource m_Audio;
 
     private void OnTriggerStay(Collider _other)
     {
@@ -14,6 +15,7 @@ public class DrawOpener : MonoBehaviour
             {
                 Debug.Log("enter");
                 m_Drawer.m_Open = true;
+                m_Audio.Play();
             }
         }
     }
