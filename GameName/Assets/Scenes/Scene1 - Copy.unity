@@ -26261,6 +26261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WinUi: {fileID: 634845810}
   Manager: {fileID: 1188239860}
+  Exitbutton: {fileID: 2081349800}
+  MenuButton: {fileID: 1134272156}
 --- !u!1 &634867667 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 75b96e0aec800a046bc91201433cb85a,
@@ -78165,7 +78167,7 @@ GameObject:
   - component: {fileID: 2081349803}
   - component: {fileID: 2081349802}
   m_Layer: 0
-  m_Name: Continue
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78209,7 +78211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2baa70f876b15c943a515df14428fad3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d77fd25378914ca49a62a8db7e169f92, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
