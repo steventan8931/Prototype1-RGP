@@ -8,6 +8,7 @@ public class InGameScr : MonoBehaviour
     public GameObject boyIcon, giantIcon;
     public GameObject GameManager;//get the game manager object
     public GameObject WinUI;
+    public GameObject BurnUI;
     public Boy boyscr;
     public GameState winstate;
     public GameObject DetectedUi;
@@ -32,6 +33,18 @@ public class InGameScr : MonoBehaviour
         }
     }
 
+    public void checkBurn()
+    {
+        if (boyscr.m_Killed)
+        {
+            BurnUI.SetActive(true);
+        }
+        else
+        {
+            BurnUI.SetActive(false);
+        }
+    }
+
     public void checkChara()
     {
         if(boy.GetComponent<CharacterSwapper>().m_IsGiant)
@@ -51,6 +64,7 @@ public class InGameScr : MonoBehaviour
         checkChara();
         checkDetect();
         checkWin();
+        checkBurn();
 
     }
 }

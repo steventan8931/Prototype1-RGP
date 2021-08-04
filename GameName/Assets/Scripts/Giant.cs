@@ -22,6 +22,7 @@ public class Giant : MonoBehaviour
                 m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 if (m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_RotationLocked)
                 {
+                    Debug.Log("redog");
                     m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 }
                 m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().useGravity = true;
