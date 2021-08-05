@@ -22,6 +22,7 @@ ScriptsOnlyBuild:
     - PickUpable
     - PressurePlate
     - PushableObject
+    - ResetPosition
     - ScoutingCone
     - Water
     - WinScr
@@ -109,11 +110,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13806}
     - Class: 114
-      Script: {instanceID: 13948}
+      Script: {instanceID: 13950}
     - Class: 114
-      Script: {instanceID: 14010}
+      Script: {instanceID: 14012}
     - Class: 114
-      Script: {instanceID: 14100}
+      Script: {instanceID: 14102}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -238,11 +239,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13892}
     - Class: 114
-      Script: {instanceID: 14100}
+      Script: {instanceID: 13904}
     - Class: 114
-      Script: {instanceID: 14126}
+      Script: {instanceID: 14102}
     - Class: 114
-      Script: {instanceID: 14138}
+      Script: {instanceID: 14128}
+    - Class: 114
+      Script: {instanceID: 14140}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -450,7 +453,7 @@ ScriptsOnlyBuild:
     className: NetworkTransform
   - hash:
       serializedVersion: 2
-      Hash: 3c392beeab82b7662190397a83ef261a
+      Hash: 7ec1e85d12e9beba3b5220d0b24a8042
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DayNightManager
@@ -1084,6 +1087,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Drawer
+  - hash:
+      serializedVersion: 2
+      Hash: 28b4e166285dc912af1a442aa532d636
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResetPosition
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
