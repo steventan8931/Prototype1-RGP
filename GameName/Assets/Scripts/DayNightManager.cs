@@ -33,7 +33,7 @@ public class DayNightManager : MonoBehaviour
             m_Audio.Play();
         }
 
-        m_ClockUI.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -m_TimeOfDay * 15);
+        m_ClockUI.transform.rotation = Quaternion.Euler(0.0f, 0.0f, (-m_TimeOfDay * 15) -90);
         m_TimeOfDay += Time.deltaTime * m_TimeSpeed;
         m_TimeOfDay %= 24;
         UpdateLighting(m_TimeOfDay / 24);
