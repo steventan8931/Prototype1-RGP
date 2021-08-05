@@ -11,9 +11,10 @@ public class Water : MonoBehaviour
     {
         if (_other.GetComponent<Death>() != null)
         {
+            m_Audio.Play();
             m_Touched = true;
             _other.GetComponent<Death>().m_TouchedWater = true;
-            m_Audio.Play();
+
         }
     }
 
@@ -23,7 +24,7 @@ public class Water : MonoBehaviour
         {
             m_Timer += Time.deltaTime;
 
-            if (m_Timer > 0.3)
+            if (m_Timer > 0.5)
             {
                 Destroy(transform.parent.gameObject);
             }

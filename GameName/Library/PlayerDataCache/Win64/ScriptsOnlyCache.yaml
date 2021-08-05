@@ -19,6 +19,7 @@ ScriptsOnlyBuild:
     - InGameScr
     - Key
     - MouseLook
+    - ObjectHighLight
     - PickUpable
     - PressurePlate
     - PushableObject
@@ -105,6 +106,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13166}
     - Class: 114
       Script: {instanceID: 13186}
+    - Class: 114
+      Script: {instanceID: 13464}
     - Class: 114
       Script: {instanceID: 13556}
     - Class: 114
@@ -246,6 +249,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14128}
     - Class: 114
       Script: {instanceID: 14140}
+    - Class: 114
+      Script: {instanceID: 60924}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1249,6 +1254,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: eff6c33de8a3bb0d5983433325a42117
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ObjectHighLight
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
