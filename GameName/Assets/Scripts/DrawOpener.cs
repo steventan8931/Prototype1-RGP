@@ -11,7 +11,7 @@ public class DrawOpener : MonoBehaviour
     {
         if (_other.tag == "Giant")
         {
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.Mouse1) && !m_Drawer.m_Open)
             {
                 m_Drawer.m_Open = true;
                 m_Audio.Play();

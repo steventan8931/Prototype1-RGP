@@ -14,7 +14,7 @@ public class PickUpable : MonoBehaviour
     {
         if (_other.tag == "Giant")
         {
-            if (m_GiantItem)
+            if (m_GiantItem && _other.GetComponent<CharacterSwapper>().m_IsGiant)
             {
                 if (Input.GetKeyDown(KeyCode.Mouse1) && !m_PickedUp)
                 {
@@ -29,7 +29,7 @@ public class PickUpable : MonoBehaviour
 
         if (_other.tag == "Boy")
         {
-            if (!m_GiantItem)
+            if (!m_GiantItem && !_other.GetComponent<CharacterSwapper>().m_IsGiant)
             {
                 if (Input.GetKeyDown(KeyCode.Mouse1) && !m_PickedUp)
                 {

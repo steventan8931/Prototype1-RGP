@@ -14,6 +14,9 @@ public class DayNightManager : MonoBehaviour
     public Giant m_Giant;
     public Vector2 m_NightExtentsEarly = new Vector2(0.0f, 8.0f);
     public Vector2 m_NightExtentsLate = new Vector2(18.0f, 24.0f);
+
+    public GameObject m_ClockUI;
+
     private void Update()
     {
         if (m_TimeOfDay > m_NightExtentsEarly.x && m_TimeOfDay < m_NightExtentsEarly.y)
@@ -30,6 +33,7 @@ public class DayNightManager : MonoBehaviour
             m_Audio.Play();
         }
 
+        m_ClockUI.transform.rotation = Quaternion.Euler(0.0f, 0.0f, -m_TimeOfDay * 15);
         m_TimeOfDay += Time.deltaTime * m_TimeSpeed;
         m_TimeOfDay %= 24;
         UpdateLighting(m_TimeOfDay / 24);
