@@ -146,7 +146,7 @@ public class CharacterMotor : MonoBehaviour
         }
 
         Vector3 inputMove = new Vector3(x, 0.0f, z);
-        inputMove = Quaternion.Euler(0.0f, m_Look.m_Spin, 0.0f) * inputMove;
+        //inputMove = Quaternion.Euler(0.0f, m_Look.m_Spin, 0.0f) * inputMove;
         if (inputMove.sqrMagnitude > 1.0f)
         {
             inputMove.Normalize();
