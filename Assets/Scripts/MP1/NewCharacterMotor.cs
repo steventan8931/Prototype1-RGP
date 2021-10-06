@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NewCharacterMotor : MonoBehaviour
 {
+    [Header("Character Motor Components")]
     public MouseLook m_Look;
 
     public Transform m_Model;
@@ -18,7 +19,6 @@ public class NewCharacterMotor : MonoBehaviour
 
     public float m_Gravity = 40.0f;
     public float m_JumpSpeed = 12.0f;
-
     public bool m_Grounded = false;
 
     public float m_FacingAngle = 0.0f;
@@ -29,11 +29,12 @@ public class NewCharacterMotor : MonoBehaviour
 
     public AudioSource m_AudioSource;
 
+
     //Control
     public bool m_IsGiant = false;
-    public bool m_IsControl = true;
+    public bool m_IsControl = false;
 
-    private void Update()
+    protected virtual void Update()
     {
         float x = 0.0f;
         float z = 0.0f;
@@ -41,7 +42,7 @@ public class NewCharacterMotor : MonoBehaviour
         x = Input.GetAxisRaw("Horizontal");
         z = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space) && m_Grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && m_Grounded && !m_IsGiant)
         {
             m_Velocity.y = m_JumpSpeed;
             m_Animation.ResetTrigger("Jump");
@@ -75,11 +76,11 @@ public class NewCharacterMotor : MonoBehaviour
 
         if (m_Velocity.x == 0)
         {
-            m_Animation.SetBool("Running", false);
+            m_Animation.SetBool("Walking", false);
         }
         else
         {
-            m_Animation.SetBool("Running", true);
+            m_Animation.SetBool("Walking", true);
         }
 
         Vector3 trueVelocity = m_Velocity;

@@ -27,4 +27,16 @@ public class MouseLook : MonoBehaviour
             LockCursor();
         }
     }
+
+    private void Update()
+    {
+        if (!m_AttachedCamera.enabled)
+        {
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        }
+    }
 }
