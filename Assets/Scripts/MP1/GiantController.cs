@@ -32,11 +32,15 @@ public class GiantController : NewCharacterMotor
             //Pick Up
             if (m_Hands.childCount > 0)
             {
+                m_Animation.SetBool("PushLow", false);
                 m_Animation.SetBool("PushHigh", true);
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                    m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
+                    //m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+                    //m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
+                    //m_Hands.GetChild(0).transform.parent = null;
+                    m_Hands.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+                    m_Hands.GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
                     m_Hands.GetChild(0).transform.parent = null;
                 }
             }
