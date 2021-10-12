@@ -13,8 +13,6 @@ public class ObjectHighLight : MonoBehaviour
 
     private void Update()
     {
-
-
         if (m_Swapper.m_IsGiant)
         {
             for (int i = 0; i < m_GiantItems.Length; i++)

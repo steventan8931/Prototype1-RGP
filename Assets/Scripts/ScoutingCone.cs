@@ -10,7 +10,7 @@ public class ScoutingCone : MonoBehaviour
     {
         if (_other.tag == "Boy")
         {
-            _other.GetComponent<Boy>().m_Detected = true;
+            //_other.GetComponent<Boy>().m_Detected = true;
             m_Audio.Play();
         }
     }

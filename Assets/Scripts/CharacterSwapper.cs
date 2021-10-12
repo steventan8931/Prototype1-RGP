@@ -34,7 +34,7 @@ public class CharacterSwapper : MonoBehaviour
         }
 
 
-        if(m_IsGiant)
+        if (m_IsGiant)
         {
             m_Giant.GetComponent<GiantController>().m_IsControl = true;
             m_Giant.GetComponent<GiantController>().m_Look.m_AttachedCamera.enabled = true;
