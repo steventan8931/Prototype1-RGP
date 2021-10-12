@@ -77,13 +77,8 @@ public class PickUpable : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse1) && !m_PickedUp)
             {
-                //m_Model.transform.parent = cahceGiant.m_Hands;
-                //m_Model.transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = true;
-                //m_Model.transform.localPosition = new Vector3(m_Model.transform.localPosition.x, 0, m_Model.transform.localPosition.z);
-                //m_Model.transform.GetChild(0).transform.localPosition = Vector3.zero;
                 m_Model.transform.parent = cahceGiant.m_Hands;
                 m_Model.transform.GetComponent<Rigidbody>().isKinematic = true;
-               // m_Model.transform.localPosition = new Vector3(m_Model.transform.localPosition.x, 0, m_Model.transform.localPosition.z);
                 m_PickedUp = true;
             }
         }
@@ -93,8 +88,6 @@ public class PickUpable : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse1) && !m_PickedUp)
             {
                 m_Model.transform.parent = cacheBoy.m_Hands;
-                //m_Model.transform.GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-                //m_Model.transform.GetChild(0).GetComponent<Rigidbody>().useGravity = false;
                 m_PickedUp = true;
             }
         }

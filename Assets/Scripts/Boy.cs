@@ -23,12 +23,36 @@ public class Boy : NewCharacterMotor
 
     public ScoutingCone m_ScoutingScone;
 
+    //Climbing
+    public bool m_CanClimb = false;
+    public bool m_IsClimbing = false;
+    public bool m_ZHorizontal = false;
 
     protected override void Update()
     {
         if (m_IsControl)
         {
-            base.Update();
+            if (m_CanClimb)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    m_IsClimbing = !m_IsClimbing;
+                }
+            }
+
+            if (m_IsClimbing)
+            {
+                Climb();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    m_IsClimbing = false;
+                }
+            }
+            else
+            {
+                base.Update();
+            }
+
             if (m_Detected || m_Killed)
             {
                 m_RespawnTimer += Time.deltaTime;
@@ -64,6 +88,50 @@ public class Boy : NewCharacterMotor
         else
         {
             m_Animation.SetBool("Walking", false);
+        }
+
+    }
+
+
+    void Climb()
+    {
+        float x = 0.0f;
+        float z = 0.0f;
+
+        x = Input.GetAxisRaw("Horizontal");
+        z = Input.GetAxisRaw("Vertical");
+
+        Vector3 inputMove;
+
+        if (m_ZHorizontal)
+        {
+            inputMove = new Vector3(0.0f, z, x);
+        }
+        else
+        {
+            inputMove = new Vector3(x, z, 0.0f);
+        }
+
+        m_Velocity = inputMove * m_Acceleration * Time.deltaTime;
+
+        Vector3 trueVelocity = m_Velocity;
+        trueVelocity.y *= m_MoveSpeed;
+
+        if (m_ZHorizontal)
+        {
+            trueVelocity.z *= m_MoveSpeed;
+        }
+        else
+        {
+            trueVelocity.x *= m_MoveSpeed;
+        }
+
+        m_Controller.Move(trueVelocity * Time.deltaTime);
+        if (m_Velocity.magnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(m_Velocity.x, m_Velocity.z) * Mathf.Rad2Deg;
+            m_Model.localEulerAngles = new Vector3(0.0f, angle, 0.0f);
+            m_FacingAngle = angle;
         }
     }
 

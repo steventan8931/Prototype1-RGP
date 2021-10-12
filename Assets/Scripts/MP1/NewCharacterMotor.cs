@@ -34,6 +34,9 @@ public class NewCharacterMotor : MonoBehaviour
     public bool m_IsGiant = false;
     public bool m_IsControl = false;
 
+    //Crouching
+    public bool m_IsCrouching = false;
+
     protected virtual void Update()
     {
         float x = 0.0f;
@@ -48,6 +51,25 @@ public class NewCharacterMotor : MonoBehaviour
             m_Animation.ResetTrigger("Jump");
             m_Animation.SetTrigger("Jump");
             m_AudioSource.Play();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl) && m_Grounded && !m_IsGiant)
+        {
+            if ((m_Controller.collisionFlags & CollisionFlags.Above) == 0)
+            {
+                m_IsCrouching = !m_IsCrouching;
+            }
+        }
+
+        if (m_IsCrouching)
+        {
+            m_Controller.height = 1.0f;
+            m_Model.transform.localPosition = new Vector3(0, 0.5f, 0);
+        }
+        else
+        {
+            m_Controller.height = 2.0f;
+            m_Model.transform.localPosition = Vector3.zero;
         }
 
         Vector3 inputMove = new Vector3(x, 0.0f, z);
