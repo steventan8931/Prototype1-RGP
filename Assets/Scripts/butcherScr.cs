@@ -9,7 +9,8 @@ public class butcherScr : MonoBehaviour
     public float maxChase = 10;
     public float currRest = 0;
     public float maxRest = 15;
-    [SerializeField] private Transform targetPosTransform;
+    public GameObject boy;
+    public Transform targetPosTransform;
     private NavMeshAgent navMeshAgent;
     public bool isRest = true;
     public bool isBeingCtrled = false;
@@ -38,6 +39,7 @@ public class butcherScr : MonoBehaviour
     {
         if(isRest == true)
         {
+            navMeshAgent.isStopped = true;
             if(currRest > 0)
             {
                 currRest -= Time.deltaTime;
@@ -47,11 +49,16 @@ public class butcherScr : MonoBehaviour
                 currRest = 0;
                 isRest = false;
                 currChase = maxChase;
+                targetPosTransform = boy.transform;
             }
-        }else
+        }
+        else
         {
+            navMeshAgent.isStopped = false;
+            print("agent waked");
             navMeshAgent.destination = targetPosTransform.position;
             currChase -= Time.deltaTime;
+            print("time subbed");
             if (currChase <= 0)
             {
                 currChase = 0;
