@@ -24,21 +24,19 @@ public class GiantController : NewCharacterMotor
             if (m_Velocity.x == 0)
             {
                 m_Animation.SetBool("Walking", false);
-                m_Animation.SetBool("PushHigh", false);
-                m_Animation.SetBool("PushLow", false);
+                m_Animation.SetBool("Pushing", false);
+                m_Animation.SetBool("Holding", false);
+
                 m_Facing = false;
             }
             base.Update();
             //Pick Up
             if (m_Hands.childCount > 0)
             {
-                m_Animation.SetBool("PushLow", false);
-                m_Animation.SetBool("PushHigh", true);
+                m_Animation.SetBool("Pushing", false);
+                m_Animation.SetBool("Holding", true);
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    //m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                    //m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
-                    //m_Hands.GetChild(0).transform.parent = null;
                     m_Hands.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
                     m_Hands.GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
                     m_Hands.GetChild(0).transform.parent = null;
@@ -48,8 +46,8 @@ public class GiantController : NewCharacterMotor
         else
         {
             m_Animation.SetBool("Walking", false);
-            m_Animation.SetBool("PushHigh", false);
-            m_Animation.SetBool("PushLow", false);
+            m_Animation.SetBool("Pushing", false);
+            m_Animation.SetBool("Holding", false);
         }
     }
 
@@ -75,11 +73,11 @@ public class GiantController : NewCharacterMotor
                 {
                     if (_hit.collider.GetComponent<PushableObject>().m_IsBig == false)
                     {
-                        m_Animation.SetBool("PushLow", true);
+                        m_Animation.SetBool("Pushing", true);
                     }
                     else
                     {
-                        m_Animation.SetBool("PushHigh", true);
+                        m_Animation.SetBool("Pushing", true);
                     }
                 }
 

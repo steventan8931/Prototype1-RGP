@@ -64,13 +64,12 @@ public class PickUpable : MonoBehaviour
     {
         if (!m_PickedUp)
         {
-            //m_Model.transform.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
             m_Model.transform.GetComponent<Rigidbody>().isKinematic = false;
         }
         else
         {
-            cahceGiant.m_Animation.SetBool("PushHigh", true);
-            cahceGiant.m_Animation.SetBool("PushLow", false);
+            cahceGiant.m_Animation.SetBool("Pushing", false);
+            cahceGiant.m_Animation.SetBool("Holding", true);
             m_Model.transform.localPosition = Vector3.Lerp(m_Model.transform.localPosition, new Vector3(m_Model.transform.localPosition.x, 0, m_Model.transform.localPosition.z), Time.deltaTime * 2);
         }
         if (m_GiantInRange && cahceGiant.m_Facing)

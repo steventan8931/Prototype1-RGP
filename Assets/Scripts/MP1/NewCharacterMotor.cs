@@ -29,7 +29,6 @@ public class NewCharacterMotor : MonoBehaviour
 
     public AudioSource m_AudioSource;
 
-
     //Control
     public bool m_IsGiant = false;
     public bool m_IsControl = false;
