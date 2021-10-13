@@ -33,6 +33,7 @@ public class PickUpable : MonoBehaviour
                 if (cahceGiant.m_Hands.childCount <= 0)
                 {
                     m_Highlight.m_Change = true;
+                    m_Model.GetComponent<UIPromptControl>().m_CanInteract = true;
                 }
             }
         }
@@ -57,6 +58,7 @@ public class PickUpable : MonoBehaviour
             if (m_GiantItem && _other.GetComponent<CharacterSwapper>().m_IsGiant)
             {
                 m_Highlight.m_Change = false;
+                m_Model.GetComponent<UIPromptControl>().m_CanInteract = false;
                 m_GiantInRange = false;
             }
         }

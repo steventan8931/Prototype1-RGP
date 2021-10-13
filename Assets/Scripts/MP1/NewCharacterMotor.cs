@@ -114,6 +114,7 @@ public class NewCharacterMotor : MonoBehaviour
         {
             m_Velocity.y -= 1.0f;
             m_Grounded = true;
+            m_Velocity.y = 0.0f;
         }
         else
         {

@@ -28,6 +28,7 @@ public class ClimbTrigger : MonoBehaviour
             {
                 m_BoyTriggered = false;
                 m_cacheBoy.m_IsClimbing = false;
+                m_cacheBoy.m_CanClimb = false;
             }
         }
     }
