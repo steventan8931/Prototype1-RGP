@@ -20,9 +20,12 @@ public class GiantOneAI : MonoBehaviour
     public float m_ScoutSpeed = 10.0f;
     public Vector2 m_ScoutRotationExtents = new Vector2(-80.0f, 80.0f);
 
+    public FieldOfView FOV;
+
     private void Start()
     {
         m_GiantController = GetComponent<GiantController>();
+        FOV = GetComponent<FieldOfView>();
     }
 
     private void Update()
@@ -44,6 +47,10 @@ public class GiantOneAI : MonoBehaviour
             {
                 LookingAround();
                 m_LookAroundTimer += Time.deltaTime;
+                if(FOV.canSeePlayer)
+                {
+                    FailFunc();
+                }
                 if (m_LookAroundTimer > m_LookAroundTime)
                 {
                     m_LookAroundTimer = 0.0f;
@@ -95,4 +102,10 @@ public class GiantOneAI : MonoBehaviour
         //m_ScoutingCone.transform.localRotation = Quaternion.Euler(-70, m_ScoutRotation, m_ScoutingCone.transform.localRotation.y);
 
     }
+
+    public void  FailFunc()
+    {
+        //teleport player away
+    }
+    
 }

@@ -6,10 +6,11 @@ public class weeBabyScr : MonoBehaviour
 {
     //setup for moving ai
     public bool istriggered = false;
+    public bool isSleep = false;
     public GameObject OldGiant, butcherGiant;
     public Transform loc1, loc2;
     public GameObject boy;
-    
+    public bool collidedWithObj = false;
     public float moveSpeed = 0.2f;
     Vector3 target;
 
@@ -19,6 +20,9 @@ public class weeBabyScr : MonoBehaviour
     public float currChargeTime = 0f;
     public bool isCharging = false;
     public bool targetlocked = false;
+
+    //setup for animator
+    public Animator babyAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +33,11 @@ public class weeBabyScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        chargeProcess();
+        if(isSleep == false )
+        {
+            chargeProcess();
+        }
+        
     }
     Vector3 moveTowards(GameObject target)
     {
@@ -59,6 +67,7 @@ public class weeBabyScr : MonoBehaviour
     {
         transform.LookAt(target);
         transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed);
+        babyAnimator.SetBool("IsCrawling", true);
     }
     private void chargeProcess()
     {
@@ -70,9 +79,13 @@ public class weeBabyScr : MonoBehaviour
             isCharging = true;
             print("locked boy!");
         }
-        if(isCharging && currChargeTime > 0)
+        if(isCharging && currChargeTime > 0 )
         {
-            ChargeToPlayer();
+            if(collidedWithObj == false)
+            {
+                ChargeToPlayer();
+            }
+            
             currChargeTime -= Time.deltaTime;
             print("charging");
         }
@@ -82,8 +95,20 @@ public class weeBabyScr : MonoBehaviour
             isCharging = false;
             currChargeTime = 0;
             print("targetlost");
+            collidedWithObj = false;
+            babyAnimator.SetBool("IsCrawling", false);
         }
         
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Boy")
+        {
+            collidedWithObj = true;
+            
+        }
+        
+    }
+
 }
