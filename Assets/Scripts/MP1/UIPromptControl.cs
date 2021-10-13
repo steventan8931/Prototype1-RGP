@@ -26,14 +26,22 @@ public class UIPromptControl : MonoBehaviour
     }
     private void Update()
     {
-        if((Vector3.Distance(transform.GetChild(0).position, m_Giant.transform.position) < 15) && m_Giant.m_Hands.childCount <= 0)
+        if (m_IsGiantItem)
         {
-            m_InRange = true;
+            if (m_Giant.m_IsControl)
+            {
+                if ((Vector3.Distance(transform.GetChild(0).position, m_Giant.transform.position) < 15) && m_Giant.m_Hands.childCount <= 0)
+                {
+                    m_InRange = true;
+                }
+                else
+                {
+                    m_InRange = false;
+                }
+            }
+
         }
-        else
-        {
-            m_InRange = false;
-        }
+
 
         if (m_InRange)
         {

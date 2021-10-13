@@ -88,6 +88,10 @@ public class Boy : NewCharacterMotor
         else
         {
             m_Animation.SetBool("Walking", false);
+            m_Velocity.y -= m_Gravity * Time.deltaTime;
+            Vector3 trueVelocity = new Vector3(0.0f, m_Velocity.y, 0.0f);
+            m_Controller.Move(trueVelocity * Time.deltaTime);
+            GroundCheck();
         }
 
     }

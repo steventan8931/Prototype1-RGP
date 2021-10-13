@@ -110,6 +110,21 @@ public class NewCharacterMotor : MonoBehaviour
 
         m_Controller.Move(trueVelocity * Time.deltaTime);
 
+        GroundCheck();
+
+        cacheY = m_Velocity.y;
+        m_Velocity.y = 0.0f;
+        if (m_Velocity.magnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(m_Velocity.x, m_Velocity.z) * Mathf.Rad2Deg;
+            m_Model.localEulerAngles = new Vector3(0.0f, angle, 0.0f);
+            m_FacingAngle = angle;
+        }
+        m_Velocity.y = cacheY;
+    }
+
+    protected void GroundCheck()
+    {
         if ((m_Controller.collisionFlags & CollisionFlags.Below) != 0)
         {
             m_Velocity.y -= 1.0f;
@@ -125,15 +140,5 @@ public class NewCharacterMotor : MonoBehaviour
         {
             m_Velocity.y = -1.0f;
         }
-
-        cacheY = m_Velocity.y;
-        m_Velocity.y = 0.0f;
-        if (m_Velocity.magnitude > 0.01f)
-        {
-            float angle = Mathf.Atan2(m_Velocity.x, m_Velocity.z) * Mathf.Rad2Deg;
-            m_Model.localEulerAngles = new Vector3(0.0f, angle, 0.0f);
-            m_FacingAngle = angle;
-        }
-        m_Velocity.y = cacheY;
     }
 }
