@@ -17,22 +17,22 @@ public class ObjectHighLight : MonoBehaviour
         {
             for (int i = 0; i < m_GiantItems.Length; i++)
             {
-                m_GiantItems[i].transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
+                m_GiantItems[i].transform.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
             }
             if (m_BoyItem != null)
             {
-                m_BoyItem.transform.GetChild(0).GetComponent<Renderer>().material = m_BoyHightLightOG;
+                m_BoyItem.transform.GetComponent<Renderer>().material = m_BoyHightLightOG;
             }
         }
         else
         {
             for (int i = 0; i < m_GiantItems.Length; i++)
             {
-                m_GiantItems[i].transform.GetChild(0).GetComponent<Renderer>().material = m_GiantHightLightOG[i];
+                m_GiantItems[i].transform.GetComponent<Renderer>().material = m_GiantHightLightOG[i];
             }
             if (m_BoyItem != null)
             {
-                m_BoyItem.transform.GetChild(0).GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
+                m_BoyItem.transform.GetComponent<Renderer>().material.SetColor("_Color", Color.blue);
             }
 
         }

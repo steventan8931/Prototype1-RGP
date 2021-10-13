@@ -15,7 +15,12 @@ public class PickUpable : MonoBehaviour
     public bool m_GiantInRange = false;
     GiantController cahceGiant;
     Boy cacheBoy;
-    bool go = false;
+    HighlightObject m_Highlight;
+
+    private void Start()
+    {
+        m_Highlight = m_Model.GetComponent<HighlightObject>();
+    }
 
     private void OnTriggerStay(Collider _other)
     {
@@ -25,6 +30,10 @@ public class PickUpable : MonoBehaviour
             {
                 m_GiantInRange = true;
                 cahceGiant = _other.GetComponent<GiantController>();
+                if (cahceGiant.m_Hands.childCount <= 0)
+                {
+                    m_Highlight.m_Change = true;
+                }
             }
         }
 
@@ -47,6 +56,7 @@ public class PickUpable : MonoBehaviour
         {
             if (m_GiantItem && _other.GetComponent<CharacterSwapper>().m_IsGiant)
             {
+                m_Highlight.m_Change = false;
                 m_GiantInRange = false;
             }
         }
@@ -68,6 +78,7 @@ public class PickUpable : MonoBehaviour
         }
         else
         {
+            m_Highlight.m_Change = false;
             cahceGiant.m_Animation.SetBool("Pushing", false);
             cahceGiant.m_Animation.SetBool("Holding", true);
             m_Model.transform.localPosition = Vector3.Lerp(m_Model.transform.localPosition, new Vector3(m_Model.transform.localPosition.x, 0, m_Model.transform.localPosition.z), Time.deltaTime * 2);
