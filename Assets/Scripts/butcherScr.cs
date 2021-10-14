@@ -43,15 +43,25 @@ public class butcherScr : MonoBehaviour
     {
         if(isRest == true)
         {
-            isWandering = true;
-            //navMeshAgent.isStopped = true;
-            if(currRest > 0)
+            if(isWandering == false)
+            {
+                isWandering = true;
+                navMeshAgent.isStopped = true;
+                navMeshAgent.ResetPath();
+            }
+
+            if (currRest > 0)
             {
 
-                if (isWandering == true)
+                if (isWandering == true && !navMeshAgent.hasPath )
                 {
                     //wandering
                     print("Butcher is roaming");
+                    if(navMeshAgent.isStopped == true)
+                    {
+                        navMeshAgent.isStopped = false;
+                    }
+                    
                     navMeshAgent.SetDestination(GetRandPoint.Instance.GetRandomPoint(transform, Wanderradius));
                 }
                 currRest -= Time.deltaTime;
