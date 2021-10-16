@@ -15,7 +15,7 @@ public class butcherScr : MonoBehaviour
     public bool isRest = true;
     public bool isBeingCtrled = false;
     public bool isSleep = false;
-
+    public bool isIdling = true;
     //for wander
     public bool isWandering = false;
     public float Wanderradius = 6.0f;
@@ -25,6 +25,9 @@ public class butcherScr : MonoBehaviour
     public Vector3 walkPoint;
     bool walkptSet;
     public float walkPointRange;
+
+    //animator
+    public Animator butcherAnim;
 
     private void Awake()
     {
@@ -40,9 +43,14 @@ public class butcherScr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isSleep == false && isBeingCtrled == false)
+        if(isIdling)
+        {
+            
+        }
+        else if (isSleep == false && isBeingCtrled == false)
         {
             butcherMove();
+            butcherAnim.SetBool("Walking", true);
         }
     }
 
