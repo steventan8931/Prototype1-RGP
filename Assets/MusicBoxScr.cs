@@ -7,16 +7,18 @@ public class MusicBoxScr : MonoBehaviour
 {
     public bool isactive = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GiantController m_Giant;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (isactive)
+        {
+            m_Giant.m_Controllable = true;
+        }
+        else
+        {
+            m_Giant.m_Controllable = false;
+        }
     }
 
     public void startMusic()

@@ -14,6 +14,7 @@ public class GiantController : NewCharacterMotor
     private void Start()
     {
         m_IsGiant = true;
+        //m_Controllable = false;
         m_Controllable = true;
     }
 

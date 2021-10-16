@@ -17,6 +17,7 @@ public class CharacterSwapper : MonoBehaviour
     {
         if (m_Giant.GetComponent<GiantController>().m_Controllable)
         {
+            Debug.Log("can control");
             m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.T))
             {

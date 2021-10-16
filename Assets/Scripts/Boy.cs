@@ -27,6 +27,10 @@ public class Boy : NewCharacterMotor
     public bool m_CanClimb = false;
     public bool m_IsClimbing = false;
     public bool m_ZHorizontal = false;
+    public float m_ClimbSpeed = 20.0f;
+
+    //Collectables
+    public bool m_MusicPieceCollected = false;
 
     protected override void Update()
     {
@@ -119,22 +123,22 @@ public class Boy : NewCharacterMotor
         m_Velocity = inputMove * m_Acceleration * Time.deltaTime;
 
         Vector3 trueVelocity = m_Velocity;
-        trueVelocity.y *= m_MoveSpeed;
+        trueVelocity.y *= m_ClimbSpeed;
 
         if (m_ZHorizontal)
         {
-            trueVelocity.z *= m_MoveSpeed;
+            trueVelocity.z *= m_ClimbSpeed;
         }
         else
         {
-            trueVelocity.x *= m_MoveSpeed;
+            trueVelocity.x *= m_ClimbSpeed;
         }
 
         m_Controller.Move(trueVelocity * Time.deltaTime);
         if (m_Velocity.magnitude > 0.01f)
         {
             float angle = Mathf.Atan2(m_Velocity.x, m_Velocity.z) * Mathf.Rad2Deg;
-            m_Model.localEulerAngles = new Vector3(0.0f, angle, 0.0f);
+            //m_Model.localEulerAngles = new Vector3(0.0f, angle, 0.0f);
             m_FacingAngle = angle;
         }
     }

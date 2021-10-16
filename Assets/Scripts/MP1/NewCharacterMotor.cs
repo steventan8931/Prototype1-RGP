@@ -110,7 +110,21 @@ public class NewCharacterMotor : MonoBehaviour
 
         m_Controller.Move(trueVelocity * Time.deltaTime);
 
-        GroundCheck();
+        if ((m_Controller.collisionFlags & CollisionFlags.Below) != 0)
+        {
+            m_Velocity.y -= 1.0f;
+            m_Grounded = true;
+            m_Velocity.y = 0.0f;
+        }
+        else
+        {
+            m_Grounded = false;
+        }
+
+        if ((m_Controller.collisionFlags & CollisionFlags.Above) != 0)
+        {
+            m_Velocity.y = -1.0f;
+        }
 
         cacheY = m_Velocity.y;
         m_Velocity.y = 0.0f;

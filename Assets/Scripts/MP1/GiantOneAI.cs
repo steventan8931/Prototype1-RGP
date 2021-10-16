@@ -61,10 +61,15 @@ public class GiantOneAI : MonoBehaviour
             }
 
         }
+        else
+        {
+            m_GiantController.m_Model.localPosition = Vector3.zero;
+        }
     }
 
     public void Reading()
     {
+        m_GiantController.m_Model.localPosition = new Vector3(0.199f, 0.0092f, -0.371f);
         m_ScoutingCone.SetActive(false);
 
         m_GiantController.m_Animation.SetBool("Reading", true);
