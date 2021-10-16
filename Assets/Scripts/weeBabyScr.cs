@@ -10,7 +10,7 @@ public class weeBabyScr : MonoBehaviour
     public GameObject OldGiant, butcherGiant;
     public Transform loc1, loc2;
     public GameObject boy;
-    public bool collidedWithObj = false;
+    public bool collidedWithPlayer = false;
     public float moveSpeed = 0.2f;
     Vector3 target;
 
@@ -31,8 +31,8 @@ public class weeBabyScr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        summonGiants();
-        boy = GameObject.FindGameObjectWithTag("boy");
+        //summonGiants();
+        boy = GameObject.FindGameObjectWithTag("Boy");
     }
 
     // Update is called once per frame
@@ -72,7 +72,15 @@ public class weeBabyScr : MonoBehaviour
     {
         transform.LookAt(target);
         transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed);
-        babyAnimator.SetBool("IsCrawling", true);
+        if(Vector3.Distance(transform.position,target)<0.2f)
+        {
+            babyAnimator.SetBool("IsCrawling", false);
+        }
+        else
+        {
+            babyAnimator.SetBool("IsCrawling", true);
+        }
+        
     }
     private void chargeProcess()
     {
@@ -86,7 +94,7 @@ public class weeBabyScr : MonoBehaviour
         }
         if(isCharging && currChargeTime > 0 )
         {
-            if(collidedWithObj == false)
+            if(collidedWithPlayer == false)
             {
                 ChargeToPlayer();
             }
@@ -100,7 +108,7 @@ public class weeBabyScr : MonoBehaviour
             isCharging = false;
             currChargeTime = 0;
             print("targetlost");
-            collidedWithObj = false;
+            collidedWithPlayer = false;
             babyAnimator.SetBool("IsCrawling", false);
         }
         
@@ -114,8 +122,8 @@ public class weeBabyScr : MonoBehaviour
     {
         if(collision.gameObject.tag == "Boy")
         {
-            collidedWithObj = true;
-            
+            collidedWithPlayer = true;
+            babyAnimator.SetBool("IsCrawling", false);
         }
         
     }
