@@ -30,6 +30,7 @@ public class GiantOneAI : MonoBehaviour
 
     private void Update()
     {
+        m_Controllable = m_GiantController.m_Controllable;
         if (!m_Controllable)
         {
             if (m_Reading)
@@ -63,13 +64,15 @@ public class GiantOneAI : MonoBehaviour
         }
         else
         {
+            m_GiantController.m_Animation.SetBool("Reading", false);
+            m_GiantController.m_Animation.SetBool("LookAround", false);
             m_GiantController.m_Model.localPosition = Vector3.zero;
         }
     }
 
     public void Reading()
     {
-        m_GiantController.m_Model.localPosition = new Vector3(0.199f, 0.0092f, -0.371f);
+        m_GiantController.m_Model.localPosition = new Vector3(-0.299f, 0.102f, -0.133f);
         m_ScoutingCone.SetActive(false);
 
         m_GiantController.m_Animation.SetBool("Reading", true);

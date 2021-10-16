@@ -131,7 +131,7 @@ public class Boy : NewCharacterMotor
         }
         else
         {
-            trueVelocity.x *= m_ClimbSpeed;
+            trueVelocity.x *= -m_ClimbSpeed;
         }
 
         m_Controller.Move(trueVelocity * Time.deltaTime);
