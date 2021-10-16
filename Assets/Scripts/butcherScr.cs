@@ -15,6 +15,10 @@ public class butcherScr : MonoBehaviour
     public bool isRest = true;
     public bool isBeingCtrled = false;
     public bool isSleep = false;
+
+    //for wander
+    public bool isWandering = false;
+    public float Wanderradius = 6.0f;
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -39,21 +43,41 @@ public class butcherScr : MonoBehaviour
     {
         if(isRest == true)
         {
-            navMeshAgent.isStopped = true;
-            if(currRest > 0)
+            if(isWandering == false)
             {
+                isWandering = true;
+                navMeshAgent.isStopped = true;
+                navMeshAgent.ResetPath();
+            }
+
+            if (currRest > 0)
+            {
+
+                if (isWandering == true && !navMeshAgent.hasPath )
+                {
+                    //wandering
+                    print("Butcher is roaming");
+                    if(navMeshAgent.isStopped == true)
+                    {
+                        navMeshAgent.isStopped = false;
+                    }
+                    
+                    navMeshAgent.SetDestination(GetRandPoint.Instance.GetRandomPoint(transform, Wanderradius));
+                }
                 currRest -= Time.deltaTime;
             }
             else
             {
                 currRest = 0;
                 isRest = false;
+                isWandering = false;
                 currChase = maxChase;
                 targetPosTransform = boy.transform;
             }
         }
         else
         {
+            
             navMeshAgent.isStopped = false;
             print("agent waked");
             navMeshAgent.destination = targetPosTransform.position;
