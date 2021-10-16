@@ -19,6 +19,13 @@ public class butcherScr : MonoBehaviour
     //for wander
     public bool isWandering = false;
     public float Wanderradius = 6.0f;
+
+    //setup for patroling
+    public LayerMask groundMask;
+    public Vector3 walkPoint;
+    bool walkptSet;
+    public float walkPointRange;
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -93,4 +100,42 @@ public class butcherScr : MonoBehaviour
         }
 
     }
+
+    void Patroling()
+    {
+        if(!walkptSet)
+        {
+            FindWalkPoint();
+        }
+
+        if(walkptSet)
+        {
+            navMeshAgent.isStopped = false;
+            navMeshAgent.ResetPath();
+            navMeshAgent.SetDestination(walkPoint);
+        }
+        Vector3 distanceToWalkPt = transform.position - walkPoint;
+
+        //if reached patrol point
+        if(distanceToWalkPt.magnitude < 1f)
+        {
+            walkptSet = false;
+        }
+    }
+
+    void FindWalkPoint()
+    {
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+
+        if(Physics.Raycast(walkPoint,-transform.up,2f,groundMask))
+        {
+            walkptSet = true;
+        }
+    }
+
+
+
 }

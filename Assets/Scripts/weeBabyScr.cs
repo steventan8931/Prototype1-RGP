@@ -21,6 +21,11 @@ public class weeBabyScr : MonoBehaviour
     public bool isCharging = false;
     public bool targetlocked = false;
 
+
+    //setup for patroling
+    public Vector3 walkPoint;
+    bool walkptSet;
+    public float walkPointRange;
     //setup for animator
     public Animator babyAnimator;
     // Start is called before the first frame update
@@ -101,6 +106,10 @@ public class weeBabyScr : MonoBehaviour
         
     }
 
+    private void Patroling()
+    {
+
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Boy")

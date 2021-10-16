@@ -428,12 +428,12 @@ PrefabInstance:
     - target: {fileID: 6075427553516244988, guid: 570c6c72ecca63246b2f2d799f39647c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016468086
+      value: 0.000000016468086
       objectReference: {fileID: 0}
     - target: {fileID: 6075427553516244988, guid: 570c6c72ecca63246b2f2d799f39647c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000049861355
+      value: -0.0000000049861355
       objectReference: {fileID: 0}
     - target: {fileID: 6075427553611119310, guid: 570c6c72ecca63246b2f2d799f39647c,
         type: 3}
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 1400466596}
   - component: {fileID: 1400466595}
   - component: {fileID: 1400466594}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TestFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2265,7 +2265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 995236435, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016013765
+      value: 0.000000016013761
       objectReference: {fileID: 0}
     - target: {fileID: 995236435, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LocalRotation.z
@@ -2293,11 +2293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1263400695, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -4.464287e-16
+      value: 4.464287e-16
       objectReference: {fileID: 0}
     - target: {fileID: 1263400695, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.8565731e-16
+      value: -1.8565731e-16
       objectReference: {fileID: 0}
     - target: {fileID: 1453929549, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_Layer
@@ -2691,6 +2691,8 @@ MonoBehaviour:
   currChargeTime: 0
   isCharging: 0
   targetlocked: 0
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 0
   babyAnimator: {fileID: 662679560}
 --- !u!65 &2032516400
 BoxCollider:
@@ -2844,6 +2846,16 @@ PrefabInstance:
         type: 3}
       propertyPath: maxChase
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791292087482482103, guid: 2857e839252ea1b4b942ec2d68b58ae3,
+        type: 3}
+      propertyPath: walkPointRange
+      value: 5.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7791292087482482103, guid: 2857e839252ea1b4b942ec2d68b58ae3,
+        type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 2048
       objectReference: {fileID: 0}
     - target: {fileID: 7791292087482482103, guid: 2857e839252ea1b4b942ec2d68b58ae3,
         type: 3}
