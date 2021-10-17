@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2219060976192150118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5694769527982270454}
+  m_Layer: 0
+  m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5694769527982270454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2219060976192150118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5139262982346077454}
+  m_Father: {fileID: 3130686374084108736}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5139262982044769311
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +248,7 @@ Transform:
   m_LocalPosition: {x: -2.84, y: 3.4, z: -10.44}
   m_LocalScale: {x: 2.8232775, y: 2.8232775, z: 2.8232775}
   m_Children:
-  - {fileID: 5139262982346077454}
+  - {fileID: 5694769527982270454}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -303,6 +334,8 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5.3
   butcherAnim: {fileID: 5139262982346077455}
+  m_Giant: {fileID: 0}
+  m_ScoutingCone: {fileID: 0}
 --- !u!114 &5139262982274162056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,8 +405,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5139262982346077452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.4999995, y: 4.4999995, z: 4.4999995}
   m_Children:
   - {fileID: 5139262983458239686}
   - {fileID: 5139262983272764850}
@@ -381,7 +414,7 @@ Transform:
   - {fileID: 5139262983549789918}
   - {fileID: 5139262983102822042}
   - {fileID: 5139262982161591037}
-  m_Father: {fileID: 3130686374084108736}
+  m_Father: {fileID: 5694769527982270454}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5139262982346077455

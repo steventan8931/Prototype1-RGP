@@ -14,6 +14,10 @@ public class OldRoomDisable : MonoBehaviour
         {
             if (_other.GetComponent<Boy>() != null)
             {
+                if (m_Giant.GetComponent<GiantOneAI>() != null)
+                {
+                    m_Giant.GetComponent<GiantOneAI>().enabled = false;
+                }
                 m_MusicBox.isactive = false;
                 m_Giant.m_Controllable = false;
             }

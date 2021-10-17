@@ -28,16 +28,26 @@ public class weeBabyScr : MonoBehaviour
     public float walkPointRange;
     //setup for animator
     public Animator babyAnimator;
+
+    public GiantController m_Giant;
+    public GameObject m_ScoutingCone;
+
     // Start is called before the first frame update
     void Start()
     {
         //summonGiants();
         boy = GameObject.FindGameObjectWithTag("Boy");
+        m_Giant = GetComponent<GiantController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (m_Giant.m_Controllable)
+        {
+            isSleep = true;
+            m_ScoutingCone.SetActive(false);
+        }
         if(isSleep == false )
         {
             chargeProcess();
@@ -74,11 +84,11 @@ public class weeBabyScr : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed);
         if(Vector3.Distance(transform.position,target)<0.2f)
         {
-            babyAnimator.SetBool("IsCrawling", false);
+            babyAnimator.SetBool("Walking", false);
         }
         else
         {
-            babyAnimator.SetBool("IsCrawling", true);
+            babyAnimator.SetBool("Walking", true);
         }
         
     }
@@ -109,7 +119,7 @@ public class weeBabyScr : MonoBehaviour
             currChargeTime = 0;
             print("targetlost");
             collidedWithPlayer = false;
-            babyAnimator.SetBool("IsCrawling", false);
+            babyAnimator.SetBool("Walking", false);
         }
         
     }
@@ -123,7 +133,7 @@ public class weeBabyScr : MonoBehaviour
         if(collision.gameObject.tag == "Boy")
         {
             collidedWithPlayer = true;
-            babyAnimator.SetBool("IsCrawling", false);
+            babyAnimator.SetBool("Walking", false);
         }
         
     }

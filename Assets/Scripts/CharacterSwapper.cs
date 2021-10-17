@@ -18,14 +18,12 @@ public class CharacterSwapper : MonoBehaviour
         m_Giant.GetComponent<GiantController>().m_IsControl = false;
         m_Giant.GetComponent<GiantController>().m_Look.m_AttachedCamera.enabled = false;
         m_Boy.GetComponent<Boy>().m_IsControl = true;
-        Debug.Log("boy  control");
         m_Boy.GetComponent<Boy>().m_Look.m_AttachedCamera.enabled = true;
     }
     private void Update()
     {
         if (m_Giant.GetComponent<GiantController>().m_Controllable)
         {
-            Debug.Log("can control");
             m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.T))
             {
@@ -51,7 +49,6 @@ public class CharacterSwapper : MonoBehaviour
                 m_Giant.GetComponent<GiantController>().m_IsControl = true;
                 m_Giant.GetComponent<GiantController>().m_Look.m_AttachedCamera.enabled = true;
                 m_Boy.GetComponent<Boy>().m_IsControl = false;
-                Debug.Log("giant  control");
                 m_Boy.GetComponent<Boy>().m_Look.m_AttachedCamera.enabled = false;
             }
             else
@@ -59,14 +56,12 @@ public class CharacterSwapper : MonoBehaviour
                 m_Giant.GetComponent<GiantController>().m_IsControl = false;
                 m_Giant.GetComponent<GiantController>().m_Look.m_AttachedCamera.enabled = false;
                 m_Boy.GetComponent<Boy>().m_IsControl = true;
-                Debug.Log("boy  control");
                 m_Boy.GetComponent<Boy>().m_Look.m_AttachedCamera.enabled = true;
             }
         }
         else
         {
             m_IsGiant = false;
-            Debug.Log("cant  control");
             m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         }
 

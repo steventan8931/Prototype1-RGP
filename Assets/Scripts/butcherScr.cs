@@ -29,20 +29,33 @@ public class butcherScr : MonoBehaviour
     //animator
     public Animator butcherAnim;
 
+    //GiantController
+    public GiantController m_Giant;
+    public GameObject m_ScoutingCone;
+
     private void Awake()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        m_Giant = GetComponent<GiantController>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_ScoutingCone.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(m_Giant.m_Controllable)
+        {
+            isIdling = true;
+            m_ScoutingCone.SetActive(false);
+            transform.rotation = Quaternion.Euler(Vector3.zero);
+            navMeshAgent.enabled = false;
+            
+        }
         if(isIdling)
         {
             

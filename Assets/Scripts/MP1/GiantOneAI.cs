@@ -35,6 +35,7 @@ public class GiantOneAI : MonoBehaviour
         {
             if (m_Reading)
             {
+                m_ScoutingCone.SetActive(false);
                 Reading();
                 m_ReadingTimer += Time.deltaTime;
                 if (m_ReadingTimer > m_LookAroundAtTime)
@@ -46,6 +47,7 @@ public class GiantOneAI : MonoBehaviour
             }
             if (m_LookingAround)
             {
+                m_ScoutingCone.SetActive(true);
                 LookingAround();
                 m_LookAroundTimer += Time.deltaTime;
                 if(FOV.canSeePlayer)
@@ -64,6 +66,7 @@ public class GiantOneAI : MonoBehaviour
         }
         else
         {
+            m_ScoutingCone.SetActive(false);
             m_GiantController.m_Animation.SetBool("Reading", false);
             m_GiantController.m_Animation.SetBool("LookAround", false);
             m_GiantController.m_Model.localPosition = Vector3.zero;
@@ -73,7 +76,6 @@ public class GiantOneAI : MonoBehaviour
     public void Reading()
     {
         m_GiantController.m_Model.localPosition = new Vector3(-0.299f, 0.102f, -0.133f);
-        m_ScoutingCone.SetActive(false);
 
         m_GiantController.m_Animation.SetBool("Reading", true);
         m_GiantController.m_Animation.SetBool("LookAround", false);
@@ -85,29 +87,26 @@ public class GiantOneAI : MonoBehaviour
         m_GiantController.m_Animation.SetBool("LookAround", true);
 
         //Update with actual FOV
+        if (m_ScoutRotation >= m_ScoutRotationExtents.y)
+        {
+            m_ScoutingLeft = true;
 
-        //m_ScoutingCone.SetActive(true);
+        }
+        if (m_ScoutRotation <= m_ScoutRotationExtents.x)
+        {
+            m_ScoutingLeft = false;
 
-        //if (m_ScoutRotation >= m_ScoutRotationExtents.y)
-        //{
-        //    m_ScoutingLeft = true;
+        }
+        if (m_ScoutingLeft)
+        {
+            m_ScoutRotation -= Time.deltaTime * m_ScoutSpeed;
+        }
+        else
+        {
+            m_ScoutRotation += Time.deltaTime * m_ScoutSpeed;
+        }
 
-        //}
-        //if (m_ScoutRotation <= m_ScoutRotationExtents.x)
-        //{
-        //    m_ScoutingLeft = false;
-
-        //}
-        //if (m_ScoutingLeft)
-        //{
-        //    m_ScoutRotation -= Time.deltaTime * m_ScoutSpeed;
-        //}
-        //else
-        //{
-        //    m_ScoutRotation += Time.deltaTime * m_ScoutSpeed;
-        //}
-
-        //m_ScoutingCone.transform.localRotation = Quaternion.Euler(-70, m_ScoutRotation, m_ScoutingCone.transform.localRotation.y);
+        m_ScoutingCone.transform.localRotation = Quaternion.Euler(-70, m_ScoutRotation, m_ScoutingCone.transform.localRotation.y);
 
     }
 
