@@ -10,12 +10,17 @@ public class butcherScr : MonoBehaviour
     public float currRest = 0;
     public float maxRest = 15;
     public GameObject boy;
+    public float dist;
     public Transform targetPosTransform;
     private NavMeshAgent navMeshAgent;
     public bool isRest = true;
     public bool isBeingCtrled = false;
     public bool isSleep = false;
     public bool isIdling = true;
+
+    // for FOV
+    public FieldOfView FOV;
+    public GameObject detectedUI;
     //for wander
     public bool isWandering = false;
     public float Wanderradius = 6.0f;
@@ -50,6 +55,7 @@ public class butcherScr : MonoBehaviour
         else if (isSleep == false && isBeingCtrled == false)
         {
             butcherMove();
+            detectBoy();
             butcherAnim.SetBool("Walking", true);
         }
     }
@@ -141,6 +147,21 @@ public class butcherScr : MonoBehaviour
         if(Physics.Raycast(walkPoint,-transform.up,2f,groundMask))
         {
             walkptSet = true;
+        }
+    }
+
+    void detectBoy()
+    {
+        dist = Vector3.Distance(boy.transform.position, transform.position);
+        if(dist <= 2.95f && FOV.canSeePlayer == true)
+        {
+            //detected boy
+            print("boy detected!");
+            detectedUI.SetActive(true);
+        }
+        else
+        {
+            detectedUI.SetActive(false);
         }
     }
 
