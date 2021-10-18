@@ -11,6 +11,8 @@ public class GiantController : NewCharacterMotor
     public float m_PushStrength = 5.0f;
     public bool m_Facing = false;
 
+    public bool m_IsBaby = false;
+
     private void Start()
     {
         m_IsGiant = true;
@@ -26,15 +28,20 @@ public class GiantController : NewCharacterMotor
             if (m_Velocity.x == 0)
             {
                 m_Animation.SetBool("Walking", false);
-                m_Animation.SetBool("Pushing", false);
-                m_Animation.SetBool("Holding", false);
+                if (!m_IsBaby)
+                {
+                    m_Animation.SetBool("Pushing", false);
+                    m_Animation.SetBool("Holding", false);
+                }
+
                 m_Facing = false;
             }
             base.Update();
             //Pick Up
-            if (m_Hands.childCount > 0)
+            if (m_Hands.childCount > 0 && !m_IsBaby)
             {
                 m_Animation.SetBool("Pushing", true);
+
                 m_CanStrafe = false;
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
@@ -54,6 +61,11 @@ public class GiantController : NewCharacterMotor
 
     private void OnControllerColliderHit(ControllerColliderHit _hit)
     {
+        if(m_IsBaby)
+        {
+            return;
+        }
+
         Vector3 horizontalVelocity = m_Velocity;
         horizontalVelocity.y = 0.0f;
 

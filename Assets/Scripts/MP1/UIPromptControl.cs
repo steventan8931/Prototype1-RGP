@@ -13,12 +13,11 @@ public class UIPromptControl : MonoBehaviour
     public bool m_InRange = false;
     public bool m_CanInteract = false;
 
-    GiantController m_Giant;
+    public GiantController m_Giant;
     Boy m_Boy;
 
     private void Start()
     {
-        m_Giant = FindObjectOfType<GiantController>();
         m_Boy = FindObjectOfType<Boy>();
 
         m_InRangeUI = m_PromptCanvas.transform.GetChild(0).gameObject;
@@ -40,6 +39,20 @@ public class UIPromptControl : MonoBehaviour
                 }
             }
 
+        }
+        else
+        {
+            if (m_Boy.m_IsControl)
+            {
+                if ((Vector3.Distance(transform.GetChild(0).position, m_Boy.transform.position) < 15) && m_Boy.m_Hands.childCount <= 0)
+                {
+                    m_InRange = true;
+                }
+                else
+                {
+                    m_InRange = false;
+                }
+            }
         }
 
 

@@ -32,8 +32,20 @@ public class Boy : NewCharacterMotor
     //Collectables
     public bool m_MusicPieceCollected = false;
 
+    //Riding Baby
+    public bool m_IsRiding = false;
+
     protected override void Update()
     {
+        if (m_IsRiding)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                m_IsRiding = false;
+            }
+            return;
+        }
+
         if (m_IsControl)
         {
             if (m_CanClimb)

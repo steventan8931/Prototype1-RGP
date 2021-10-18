@@ -47,7 +47,16 @@ public class NewCharacterMotor : MonoBehaviour
         {
             x = Input.GetAxisRaw("Horizontal");
         }
+        else
+        {
+
+        }
+
         z = Input.GetAxisRaw("Vertical");
+        if (Input.GetAxisRaw("Vertical") == 1 && !m_CanStrafe)
+        {
+            z = 0.0f;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space) && m_Grounded && !m_IsGiant)
         {
@@ -75,6 +84,8 @@ public class NewCharacterMotor : MonoBehaviour
             m_Controller.height = 2.0f;
             m_Model.transform.localPosition = Vector3.zero;
         }
+
+ 
 
         Vector3 inputMove = new Vector3(x, 0.0f, z);
         if (m_CanStrafe)
