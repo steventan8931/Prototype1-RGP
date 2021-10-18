@@ -14,11 +14,13 @@ public class GiantController : NewCharacterMotor
     private void Start()
     {
         m_IsGiant = true;
+        m_Hands.gameObject.SetActive(true);
         //m_Controllable = false;
     }
 
     protected override void Update()
     {
+
         if (m_IsControl)
         {
             if (m_Velocity.x == 0)
@@ -32,12 +34,12 @@ public class GiantController : NewCharacterMotor
             //Pick Up
             if (m_Hands.childCount > 0)
             {
-                m_Animation.SetBool("Pushing", false);
-                m_Animation.SetBool("Holding", true);
+                m_Animation.SetBool("Pushing", true);
+                m_CanStrafe = false;
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    m_Hands.GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                    m_Hands.GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
+                    m_CanStrafe = true;
+                    m_Hands.GetChild(0).GetChild(0).GetComponent<PullableObject>().m_PickedUp = false;
                     m_Hands.GetChild(0).transform.parent = null;
                 }
             }

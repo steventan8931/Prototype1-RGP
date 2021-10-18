@@ -11,25 +11,25 @@ public class Giant : MonoBehaviour
 
     private void Update()
     {
-        //Pick Up
-        if (m_Hands.childCount > 0)
-        {
+        ////Pick Up
+        //if (m_Hands.childCount > 0)
+        //{
 
-            GetComponent<CharacterMotor>().m_Animation.SetBool("PushHigh", true);
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                Debug.Log("release");
-                //m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-                if (m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_RotationLocked)
-                {
-                    m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-                }
-                //m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().useGravity = true;
-                //m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
-                m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
-                m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
-                m_Hands.GetChild(0).transform.parent = null;
-            }
-        }
+        //    GetComponent<CharacterMotor>().m_Animation.SetBool("PushHigh", true);
+        //    if (Input.GetKeyDown(KeyCode.Mouse0))
+        //    {
+        //        Debug.Log("release");
+        //        //m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        //        if (m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_RotationLocked)
+        //        {
+        //            m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        //        }
+        //        //m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().useGravity = true;
+        //        //m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
+        //        m_Hands.GetChild(0).GetChild(0).GetComponent<Rigidbody>().isKinematic = false;
+        //        m_Hands.GetChild(0).GetChild(0).GetChild(0).GetComponent<PickUpable>().m_PickedUp = false;
+        //        m_Hands.GetChild(0).transform.parent = null;
+        //    }
+        //}
     }
 }

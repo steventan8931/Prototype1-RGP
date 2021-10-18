@@ -36,12 +36,17 @@ public class NewCharacterMotor : MonoBehaviour
     //Crouching
     public bool m_IsCrouching = false;
 
+    //Strafing
+    public bool m_CanStrafe = true;
+    public Vector2 LastVelocity;
     protected virtual void Update()
     {
         float x = 0.0f;
         float z = 0.0f;
-
-        x = Input.GetAxisRaw("Horizontal");
+        if (m_CanStrafe)
+        {
+            x = Input.GetAxisRaw("Horizontal");
+        }
         z = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKeyDown(KeyCode.Space) && m_Grounded && !m_IsGiant)
@@ -72,7 +77,15 @@ public class NewCharacterMotor : MonoBehaviour
         }
 
         Vector3 inputMove = new Vector3(x, 0.0f, z);
-        inputMove = Quaternion.Euler(0.0f, m_Camera.transform.eulerAngles.y, 0.0f) * inputMove;
+        if (m_CanStrafe)
+        {
+            inputMove = Quaternion.Euler(0.0f, m_Camera.transform.eulerAngles.y, 0.0f) * inputMove;
+        }
+        else
+        {
+            inputMove = Quaternion.Euler(0.0f, m_Model.transform.eulerAngles.y, 0.0f) * inputMove;
+        }
+
         if (inputMove.sqrMagnitude > 1.0f)
         {
             inputMove.Normalize();
@@ -82,7 +95,6 @@ public class NewCharacterMotor : MonoBehaviour
         m_Velocity.y = 0.0f;
 
         Vector3 cacheVelocity = m_Velocity;
-
         m_Velocity += inputMove * m_Acceleration * Time.deltaTime;
         m_Velocity -= m_Velocity.normalized * m_Acceleration * m_FrictionCurve.Evaluate(m_Velocity.magnitude) * Time.deltaTime;
 
@@ -128,7 +140,7 @@ public class NewCharacterMotor : MonoBehaviour
 
         cacheY = m_Velocity.y;
         m_Velocity.y = 0.0f;
-        if (m_Velocity.magnitude > 0.01f)
+        if (m_Velocity.magnitude > 0.01f && m_CanStrafe)
         {
             float angle = Mathf.Atan2(m_Velocity.x, m_Velocity.z) * Mathf.Rad2Deg;
             m_Model.localEulerAngles = new Vector3(0.0f, angle, 0.0f);
