@@ -58,7 +58,11 @@ public class butcherScr : MonoBehaviour
         }
         if(isIdling)
         {
-            
+            if (!isSleep)
+            {
+                butcherAnim.SetBool("Walking", false);
+                isSleep = true;
+            }
         }
         else if (isSleep == false && isBeingCtrled == false)
         {
@@ -84,7 +88,7 @@ public class butcherScr : MonoBehaviour
                 if (isWandering == true && !navMeshAgent.hasPath )
                 {
                     //wandering
-                    print("Butcher is roaming");
+                    //print("Butcher is roaming");
                     if(navMeshAgent.isStopped == true)
                     {
                         navMeshAgent.isStopped = false;
@@ -107,10 +111,10 @@ public class butcherScr : MonoBehaviour
         {
             
             navMeshAgent.isStopped = false;
-            print("agent waked");
+            //print("agent waked");
             navMeshAgent.destination = targetPosTransform.position;
             currChase -= Time.deltaTime;
-            print("time subbed");
+            //print("time subbed");
             if (currChase <= 0)
             {
                 currChase = 0;

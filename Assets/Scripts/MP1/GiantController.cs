@@ -26,7 +26,6 @@ public class GiantController : NewCharacterMotor
                 m_Animation.SetBool("Walking", false);
                 m_Animation.SetBool("Pushing", false);
                 m_Animation.SetBool("Holding", false);
-
                 m_Facing = false;
             }
             base.Update();
@@ -45,9 +44,9 @@ public class GiantController : NewCharacterMotor
         }
         else
         {
-            m_Animation.SetBool("Walking", false);
-            m_Animation.SetBool("Pushing", false);
-            m_Animation.SetBool("Holding", false);
+            //m_Animation.SetBool("Walking", false);
+            //m_Animation.SetBool("Pushing", false);
+            //m_Animation.SetBool("Holding", false);
         }
     }
 
