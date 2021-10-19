@@ -24,6 +24,7 @@ public class MusicBoxScr : MonoBehaviour
     public void startMusic()
     {
         isactive = true;
+        m_Giant.m_IsControl = true;
         //play music 
     }
 }

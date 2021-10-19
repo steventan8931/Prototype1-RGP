@@ -14,7 +14,7 @@ public class MusicBoxTrigger : MonoBehaviour
             {
                 if (_other.GetComponent<Boy>().m_MusicPieceCollected)
                 {
-                    m_MusicBox.isactive = true;
+                    m_MusicBox.startMusic();
                     _other.GetComponent<Boy>().m_MusicPieceCollected = false;
                 }
 

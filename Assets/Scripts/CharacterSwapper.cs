@@ -62,7 +62,7 @@ public class CharacterSwapper : MonoBehaviour
         else
         {
             m_IsGiant = false;
-            m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+            //m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         }
 
     }
