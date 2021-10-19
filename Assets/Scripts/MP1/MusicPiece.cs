@@ -11,6 +11,7 @@ public class MusicPiece : MonoBehaviour
             if (_other.GetComponent<Boy>() != null)
             {
                 _other.GetComponent<Boy>().m_MusicPieceCollected = true;
+                _other.GetComponent<Boy>().m_Animation.SetTrigger("PickUp");
                 Destroy(gameObject);
             }
         }

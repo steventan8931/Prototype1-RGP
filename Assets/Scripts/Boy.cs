@@ -72,6 +72,7 @@ public class Boy : NewCharacterMotor
             }
             else
             {
+                m_Animation.SetBool("Climbing", false);
                 base.Update();
             }
 
@@ -143,6 +144,15 @@ public class Boy : NewCharacterMotor
         Vector3 trueVelocity = m_Velocity;
         trueVelocity.y *= m_ClimbSpeed;
 
+        if (trueVelocity.y > 0.0f)
+        {
+            m_Animation.speed = 1.0f;
+            m_Animation.SetBool("Climbing", true);
+        }
+        else
+        {
+            m_Animation.speed = 0.0f;
+        }
         if (m_ZHorizontal)
         {
             trueVelocity.z *= m_ClimbSpeed;
