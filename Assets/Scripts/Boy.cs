@@ -5,10 +5,6 @@ using UnityEngine;
 public class Boy : NewCharacterMotor
 {
     [Header("Boy Components")]
-    public bool m_KeyCollected = false;
-
-    public int m_RoomsCleared = 0;
-
     public bool m_GameWon = false;
 
     public Transform[] m_Checkpoints;
@@ -35,8 +31,18 @@ public class Boy : NewCharacterMotor
     //Riding Baby
     public bool m_IsRiding = false;
 
+    public int m_RoomsCleared = 0;
+
     protected override void Update()
     {
+        if (m_Detected)
+        {
+            m_Controller.enabled = false;
+            transform.position = m_Checkpoints[m_RoomsCleared].position;
+            m_Controller.enabled = true;
+            m_Detected = false;
+        }
+
         if (m_IsRiding)
         {
             if (Input.GetKeyDown(KeyCode.Space))
