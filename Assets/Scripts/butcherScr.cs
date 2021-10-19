@@ -32,6 +32,8 @@ public class butcherScr : MonoBehaviour
     //GiantController
     public GiantController m_Giant;
     public GameObject m_ScoutingCone;
+    //for table push
+    public GameObject table;
 
     private void Awake()
     {
@@ -42,7 +44,7 @@ public class butcherScr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_ScoutingCone.SetActive(true);
+        //m_ScoutingCone.SetActive(true);
     }
 
     // Update is called once per frame
@@ -54,6 +56,7 @@ public class butcherScr : MonoBehaviour
             m_ScoutingCone.SetActive(false);
             transform.rotation = Quaternion.Euler(Vector3.zero);
             navMeshAgent.enabled = false;
+            table.GetComponent<Rigidbody>().isKinematic = false;
             
         }
         if(isIdling)
