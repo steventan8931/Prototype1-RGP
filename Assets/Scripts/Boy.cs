@@ -35,7 +35,11 @@ public class Boy : NewCharacterMotor
 
     protected override void Update()
     {
-        if (m_Detected)
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            m_RoomsCleared = 1;
+        }
+            if (m_Detected)
         {
             m_Controller.enabled = false;
             transform.position = m_Checkpoints[m_RoomsCleared].position;
@@ -73,6 +77,7 @@ public class Boy : NewCharacterMotor
             else
             {
                 m_Animation.SetBool("Climbing", false);
+                m_Animation.SetBool("ClimbingDown", false);
                 base.Update();
             }
 
@@ -148,6 +153,12 @@ public class Boy : NewCharacterMotor
         {
             m_Animation.speed = 1.0f;
             m_Animation.SetBool("Climbing", true);
+            m_Animation.SetBool("ClimbingDown", false);
+        }
+        else if (trueVelocity.y < 0.0f)
+        {
+            m_Animation.speed = 1.0f;
+            m_Animation.SetBool("ClimbingDown", true);
         }
         else
         {
