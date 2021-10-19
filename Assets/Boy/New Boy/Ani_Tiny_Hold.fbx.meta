@@ -6,7 +6,17 @@ ModelImporter:
   - first:
       74: 4703518099744787187
     second: hold
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup
+    second: {fileID: 2100000, guid: a40c8c88e99b1b844abf33d75bb36dca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2SG
+    second: {fileID: 2100000, guid: 6686b048e8fb82145baec786371c70a5, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
