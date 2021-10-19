@@ -38,6 +38,10 @@ public class UIPromptControl : MonoBehaviour
                     m_InRange = false;
                 }
             }
+            else
+            {
+                m_InRange = false;
+            }
 
         }
         else
@@ -52,6 +56,10 @@ public class UIPromptControl : MonoBehaviour
                 {
                     m_InRange = false;
                 }
+            }
+            else
+            {
+                m_InRange = false;
             }
         }
 

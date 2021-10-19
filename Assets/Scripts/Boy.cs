@@ -35,7 +35,11 @@ public class Boy : NewCharacterMotor
 
     protected override void Update()
     {
-        if (m_Detected)
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            m_RoomsCleared = 1;
+        }
+            if (m_Detected)
         {
             m_Controller.enabled = false;
             transform.position = m_Checkpoints[m_RoomsCleared].position;
