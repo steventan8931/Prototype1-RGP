@@ -6,6 +6,7 @@ public class PullableObject : MonoBehaviour
 {
     public GameObject m_Model;
 
+    public HighLightSwap shaderSwap;
     public bool m_PickedUp = false;
     public bool m_GiantInRange = false;
     GiantController cahceGiant;
@@ -26,6 +27,7 @@ public class PullableObject : MonoBehaviour
                 cahceGiant = _other.GetComponent<GiantController>();
                 if (cahceGiant.m_Hands.childCount <= 0)
                 {
+                    shaderSwap.swapToHighLight();
                     m_Highlight.m_Change = true;
                     m_Model.GetComponent<UIPromptControl>().m_CanInteract = true;
                 }
@@ -40,6 +42,7 @@ public class PullableObject : MonoBehaviour
         {
             if (_other.GetComponent<CharacterSwapper>().m_IsGiant)
             {
+                shaderSwap.swapToStandard();
                 m_Highlight.m_Change = false;
                 m_Model.GetComponent<UIPromptControl>().m_CanInteract = false;
                 m_GiantInRange = false;
