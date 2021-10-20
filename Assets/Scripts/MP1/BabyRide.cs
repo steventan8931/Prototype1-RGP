@@ -12,10 +12,13 @@ public class BabyRide : MonoBehaviour
     Boy cacheBoy;
     HighlightObject m_Highlight;
 
+    weeBabyScr m_Baby;
+
     private void Start()
     {
         m_Highlight = UIControl.GetComponent<HighlightObject>();
         cacheBoy = FindObjectOfType<Boy>();
+        m_Baby = FindObjectOfType<weeBabyScr>();
     }
 
     private void OnTriggerStay(Collider _other)
@@ -47,6 +50,10 @@ public class BabyRide : MonoBehaviour
 
     private void Update()
     {
+        if(!m_Baby.GetComponent<GiantController>().m_Controllable)
+        {
+            return;
+        }
         if (!cacheBoy.m_IsRiding)
         {
 
