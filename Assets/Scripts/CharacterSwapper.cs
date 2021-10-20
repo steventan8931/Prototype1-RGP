@@ -27,21 +27,7 @@ public class CharacterSwapper : MonoBehaviour
             m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
             if (Input.GetKeyDown(KeyCode.T))
             {
-                m_SwapSound.Play();
-                m_IsGiant = !m_IsGiant;
-                if (m_IsGiant)
-                {
-                    Instantiate(m_SwapperEffectPrefab, m_Boy.transform.position, Quaternion.identity);
-                    Instantiate(m_SwapperEffectPrefab, m_Boy.transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);
-                    Instantiate(m_SwapperEffectPrefab, m_Boy.transform.position + new Vector3(0.0f, 2f, 0.0f), Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(m_SwapperEffectPrefab, transform.position, Quaternion.identity);
-                    Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);
-                    Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, 2f, 0.0f), Quaternion.identity);
-                }
-
+                Swap();
             }
 
             if (m_IsGiant)
@@ -65,5 +51,23 @@ public class CharacterSwapper : MonoBehaviour
             //m_Giant.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         }
 
+    }
+
+    public void Swap()
+    {
+        m_SwapSound.Play();
+        m_IsGiant = !m_IsGiant;
+        if (m_IsGiant)
+        {
+            Instantiate(m_SwapperEffectPrefab, m_Boy.transform.position, Quaternion.identity);
+            Instantiate(m_SwapperEffectPrefab, m_Boy.transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);
+            Instantiate(m_SwapperEffectPrefab, m_Boy.transform.position + new Vector3(0.0f, 2f, 0.0f), Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(m_SwapperEffectPrefab, transform.position, Quaternion.identity);
+            Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);
+            Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, 2f, 0.0f), Quaternion.identity);
+        }
     }
 }
