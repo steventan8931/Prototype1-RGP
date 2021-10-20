@@ -1,37 +1,12 @@
 fileFormatVersion: 2
-guid: 74c65c3a87afc2a4f934c9f4bd9b0449
+guid: fd01a23ee9ca20e4d84e658f2cb4b1a4
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable:
   - first:
-      74: -3419257869308726280
-    second: walk
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: firstgiant_character2_PM3D_Sphere3D3SG
-    second: {fileID: 2100000, guid: f6be5649555dc17478cdb987733c8718, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: firstgiant_character2_initialShadingGroup
-    second: {fileID: 2100000, guid: 06b58d8372f7bb640b99270fc64cadbf, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: firstgiant_character2_lambert2SG
-    second: {fileID: 2100000, guid: 664e97635e827c24f992299f7f629982, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: firstgiant_character2_lambert3SG
-    second: {fileID: 2100000, guid: 0471ea0f2dc26bc4a9b0884a1a266fa8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert10SG
-    second: {fileID: 2100000, guid: 491cba7c1f9bf904e9e0b7ca834a0e97, type: 2}
+      74: 934665161720907391
+    second: Walk2
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -58,36 +33,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: walk
-      takeName: walk
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 59
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
