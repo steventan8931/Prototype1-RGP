@@ -46,7 +46,7 @@ public class weeBabyScr : MonoBehaviour
         if (m_Giant.m_Controllable)
         {
             isSleep = true;
-            m_ScoutingCone.SetActive(false);
+            //m_ScoutingCone.SetActive(false);
         }
         if(isSleep == false )
         {
@@ -117,7 +117,7 @@ public class weeBabyScr : MonoBehaviour
             targetlocked = false;
             isCharging = false;
             currChargeTime = 0;
-            print("targetlost");
+            //print("targetlost");
             collidedWithPlayer = false;
             babyAnimator.SetBool("Walking", false);
         }

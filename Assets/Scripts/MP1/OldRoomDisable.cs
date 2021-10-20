@@ -9,6 +9,10 @@ public class OldRoomDisable : MonoBehaviour
     public butcherScr butcher;
     public int m_RoomsCleared = 0;
 
+    private void Start()
+    {
+        butcher = FindObjectOfType<butcherScr>();
+    }
     //On Triggers Makes Specific Room Giant uncontrollable and Music stop playing
     private void OnTriggerEnter(Collider _other)
     {
