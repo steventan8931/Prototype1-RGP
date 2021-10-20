@@ -22,6 +22,7 @@ public class GiantOneAI : MonoBehaviour
 
     public FieldOfView FOV;
 
+    public GameObject m_Book;
     private void Start()
     {
         m_GiantController = GetComponent<GiantController>();
@@ -66,6 +67,7 @@ public class GiantOneAI : MonoBehaviour
         }
         else
         {
+            m_Book.SetActive(false);
             m_ScoutingCone.SetActive(false);
             m_GiantController.m_Animation.SetBool("Reading", false);
             m_GiantController.m_Animation.SetBool("LookAround", false);

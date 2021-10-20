@@ -8,6 +8,8 @@ public class ClimbTrigger : MonoBehaviour
     public bool m_ZHorizontal = false;
     Boy m_cacheBoy;
 
+    public HighLightSwap shaderSwap;
+
     private void OnTriggerEnter(Collider _other)
     {
         if (_other.tag == "Boy")
@@ -15,6 +17,7 @@ public class ClimbTrigger : MonoBehaviour
             if (_other.GetComponent<Boy>())
             {
                 m_BoyTriggered = true;
+                shaderSwap.swapToHighLight();
                 m_cacheBoy = _other.GetComponent<Boy>();
             }
         }
@@ -26,6 +29,7 @@ public class ClimbTrigger : MonoBehaviour
         {
             if (_other.GetComponent<Boy>())
             {
+                shaderSwap.swapToStandard();
                 m_BoyTriggered = false;
                 m_cacheBoy.m_IsClimbing = false;
                 m_cacheBoy.m_CanClimb = false;

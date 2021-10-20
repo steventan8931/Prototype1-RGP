@@ -17,7 +17,11 @@ public class GiantController : NewCharacterMotor
     {
         m_IsGiant = true;
         m_Hands.gameObject.SetActive(true);
-        m_Animation.SetBool("Walking", true);
+        if (m_IsBaby)
+        {
+            m_Animation.speed = 0.0f;
+        }
+
         //m_Controllable = false;
     }
 
