@@ -74,16 +74,16 @@ public class NewCharacterMotor : MonoBehaviour
             }
         }
 
-        if (m_IsCrouching)
-        {
-            m_Controller.height = 1.0f;
-            m_Model.transform.localPosition = new Vector3(0, 0.5f, 0);
-        }
-        else
-        {
-            m_Controller.height = 2.0f;
-            m_Model.transform.localPosition = Vector3.zero;
-        }
+        //if (m_IsCrouching)
+        //{
+        //    m_Controller.height = 1.0f;
+        //    m_Model.transform.localPosition = new Vector3(0, 0.5f, 0);
+        //}
+        //else
+        //{
+        //    m_Controller.height = 2.0f;
+        //    m_Model.transform.localPosition = Vector3.zero;
+        //}
 
  
 

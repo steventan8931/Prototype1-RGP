@@ -45,6 +45,7 @@ public class butcherScr : MonoBehaviour
     void Start()
     {
         //m_ScoutingCone.SetActive(true);
+        isIdling = true;
     }
 
     // Update is called once per frame

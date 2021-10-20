@@ -76,6 +76,7 @@ public class Boy : NewCharacterMotor
             }
             else
             {
+                m_Animation.speed = 1.0f;
                 m_Animation.SetBool("Climbing", false);
                 m_Animation.SetBool("ClimbingDown", false);
                 base.Update();

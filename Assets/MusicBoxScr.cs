@@ -10,6 +10,13 @@ public class MusicBoxScr : MonoBehaviour
     public GameObject m_MusicMissing;
     public GiantController m_Giant;
     public bool m_BabyMusic = false;
+
+    public AudioSource m_SoothingMusic;
+
+    private void Start()
+    {
+        m_SoothingMusic = GameObject.Find("MusicBoxSFX").GetComponent<AudioSource>();
+    }
     private void Update()
     {
         if (isactive)
@@ -37,6 +44,7 @@ public class MusicBoxScr : MonoBehaviour
     {
         isactive = true;
         m_Giant.m_IsControl = true;
+        m_SoothingMusic.Play();
         //play music 
     }
 }
