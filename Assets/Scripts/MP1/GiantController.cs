@@ -22,7 +22,6 @@ public class GiantController : NewCharacterMotor
 
     protected override void Update()
     {
-
         if (m_IsControl)
         {
             if (m_Velocity.x == 0)
