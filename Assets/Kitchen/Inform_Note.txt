@@ -1,0 +1,7 @@
+1.Some items do not have an Occ map or other map. You don't have to worry because it wasn't missing
+
+2.Musicbox and Microphoe use same texture
+
+3.Jar has opacity map.If you don't apply it, you can't see the substance inside.
+
+4.If there is a missing mesh or folder, I would appreciate it if you would let me know. I'll give you an additional gift right away.
