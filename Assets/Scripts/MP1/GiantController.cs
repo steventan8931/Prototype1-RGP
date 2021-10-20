@@ -27,7 +27,16 @@ public class GiantController : NewCharacterMotor
         {
             if (m_Velocity.x == 0)
             {
-                m_Animation.SetBool("Walking", false);
+                if (m_IsBaby)
+                {
+                    m_Animation.speed = 0.0f;
+                }
+                else
+                {
+                    m_Animation.speed = 1.0f;
+                    m_Animation.SetBool("Walking", false);
+                }
+
                 if (!m_IsBaby)
                 {
                     m_Animation.SetBool("Pushing", false);
@@ -35,6 +44,10 @@ public class GiantController : NewCharacterMotor
                 }
 
                 m_Facing = false;
+            }
+            else
+            {
+                m_Animation.speed = 1.0f;
             }
             base.Update();
             //Pick Up
