@@ -6,6 +6,7 @@ public class OldRoomDisable : MonoBehaviour
 {
     public MusicBoxScr m_MusicBox;
     public GiantController m_Giant;
+    public butcherScr butcher;
     public int m_RoomsCleared = 0;
 
     //On Triggers Makes Specific Room Giant uncontrollable and Music stop playing
@@ -22,6 +23,9 @@ public class OldRoomDisable : MonoBehaviour
                 }
                 m_MusicBox.isactive = false;
                 m_Giant.m_Controllable = false;
+                butcher.isIdling = false;
+                butcher.isSleep = false;
+                print("butcher woken");
             }
         }
     }
