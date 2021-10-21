@@ -14,6 +14,8 @@ public class BabyRide : MonoBehaviour
 
     weeBabyScr m_Baby;
 
+    public HighLightSwap shaderSwap;
+
     private void Start()
     {
         m_Highlight = UIControl.GetComponent<HighlightObject>();
@@ -29,6 +31,7 @@ public class BabyRide : MonoBehaviour
             {
                 m_BoyInRange = true;
                 m_Highlight.m_Change = true;
+                shaderSwap.swapToHighLight();
                 UIControl.GetComponent<UIPromptControl>().m_CanInteract = true;
             }
         }
@@ -41,6 +44,7 @@ public class BabyRide : MonoBehaviour
         {
             if (_other.GetComponent<Boy>())
             {
+                shaderSwap.swapToStandard();
                 m_Highlight.m_Change = false;
                 UIControl.GetComponent<UIPromptControl>().m_CanInteract = false;
                 m_BoyInRange = false;
