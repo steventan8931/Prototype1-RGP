@@ -45,14 +45,11 @@ public class Boy : NewCharacterMotor
         {
             m_Controller.enabled = false;
             Invoke(nameof(delayTransport), 1.5f);
-            if(isDetectedUiShown == false)
+            if (isDetectedUiShown == false)
             {
                 detectedUI.SetActive(true);
                 isDetectedUiShown = true;
             }
-            m_Controller.enabled = true;
-            isDetectedUiShown = false;
-            m_Detected = false;
         }
 
         if (m_IsRiding)
@@ -195,7 +192,11 @@ public class Boy : NewCharacterMotor
 
     void delayTransport()
     {
+
         transform.position = m_Checkpoints[m_RoomsCleared].position;
+        m_Controller.enabled = true;
+        m_Detected = false;
+        isDetectedUiShown = false;
         detectedUI.SetActive(false);
     }
 }
