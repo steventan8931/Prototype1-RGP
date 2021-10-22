@@ -52305,6 +52305,11 @@ PrefabInstance:
       propertyPath: m_Giant
       value: 
       objectReference: {fileID: 1758333019}
+    - target: {fileID: 6745600687764154785, guid: cdc92c881cd913c4fa0bbd152c77b881,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6745600687764154788, guid: cdc92c881cd913c4fa0bbd152c77b881,
         type: 3}
       propertyPath: m_Mass
