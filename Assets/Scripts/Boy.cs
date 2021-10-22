@@ -29,14 +29,22 @@ public class Boy : NewCharacterMotor
 
     //Collectables
     public bool m_MusicPieceCollected = false;
-
+    public GameObject m_MusicPieceOnBack;
     //Riding Baby
     public bool m_IsRiding = false;
 
     public int m_RoomsCleared = 0;
 
+    ClimbTrigger[] cacheTriggers;
+
+    private void Start()
+    {
+        cacheTriggers = FindObjectsOfType<ClimbTrigger>();
+    }
+
     protected override void Update()
     {
+        UpdateMusicPiece();
         if (Input.GetKeyDown(KeyCode.P))
         {
             m_RoomsCleared = 1;
@@ -189,6 +197,25 @@ public class Boy : NewCharacterMotor
         m_Detected = false;
         isDetectedUiShown = false;
         detectedUI.SetActive(false);
+        m_IsClimbing = false;
+        m_CanClimb = false;
+
+        foreach (ClimbTrigger trigger in cacheTriggers)
+        {
+            trigger.shaderSwap.swapToStandard();
+        }
         m_RespawnTimer = 0.0f;
+    }
+
+    void UpdateMusicPiece()
+    {
+        if (m_MusicPieceCollected)
+        {
+            m_MusicPieceOnBack.SetActive(true);
+        }
+        else
+        {
+            m_MusicPieceOnBack.SetActive(false);
+        }
     }
 }

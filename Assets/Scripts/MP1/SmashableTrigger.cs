@@ -16,6 +16,7 @@ public class SmashableTrigger : MonoBehaviour
     private void Start()
     {
         m_Highlight = m_Model.GetComponent<HighlightObject>();
+        shaderSwap.swapToStandard();
     }
 
 
