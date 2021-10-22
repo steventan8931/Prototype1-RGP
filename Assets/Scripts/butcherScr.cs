@@ -100,6 +100,7 @@ public class butcherScr : MonoBehaviour
                     
                     navMeshAgent.SetDestination(GetRandPoint.Instance.GetRandomPoint(transform, Wanderradius));
                 }
+                m_ScoutingCone.SetActive(false);
                 currRest -= Time.deltaTime;
             }
             else
@@ -109,6 +110,7 @@ public class butcherScr : MonoBehaviour
                 isWandering = false;
                 currChase = maxChase;
                 targetPosTransform = boy.transform;
+                m_ScoutingCone.SetActive(true);
             }
         }
         else

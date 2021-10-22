@@ -44,7 +44,7 @@ public class Boy : NewCharacterMotor
         if (m_Detected)
         {
             m_Controller.enabled = false;
-            Invoke(nameof(delayTransport), 1.5f);
+            Invoke(nameof(delayTransport), 2f);
             if (isDetectedUiShown == false)
             {
                 detectedUI.SetActive(true);
@@ -89,7 +89,7 @@ public class Boy : NewCharacterMotor
                 base.Update();
             }
 
-            if (m_Detected || m_Killed)
+           /* if (m_Detected || m_Killed)
             {
                 m_RespawnTimer += Time.deltaTime;
                 if (m_RespawnTimer > m_RespawnDelay)
@@ -102,7 +102,7 @@ public class Boy : NewCharacterMotor
                     m_Killed = false;
                     m_ScoutingScone.m_Audio.Stop();
                 }
-            }
+            }*/
 
             //Pick Up
             if (m_Hands.childCount > 0)
