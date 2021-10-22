@@ -32,6 +32,7 @@ public class MusicBoxScr : MonoBehaviour
         else
         {
             m_Giant.m_Controllable = false;
+            m_SoothingMusic.Stop();
             if (!m_BabyMusic)
             {
                 m_MusicComplete.SetActive(false);

@@ -41,7 +41,7 @@ public class Boy : NewCharacterMotor
         {
             m_RoomsCleared = 1;
         }
-            if (m_Detected)
+        if (m_Detected)
         {
             m_Controller.enabled = false;
             Invoke(nameof(delayTransport), 1.5f);
@@ -51,6 +51,7 @@ public class Boy : NewCharacterMotor
                 isDetectedUiShown = true;
             }
             m_Controller.enabled = true;
+            isDetectedUiShown = false;
             m_Detected = false;
         }
 

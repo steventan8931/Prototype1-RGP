@@ -11,6 +11,8 @@ public class SmashableTrigger : MonoBehaviour
     HighlightObject m_Highlight;
 
     public SmashableDoor m_Door;
+
+    public HighLightSwap shaderSwap;
     private void Start()
     {
         m_Highlight = m_Model.GetComponent<HighlightObject>();
@@ -27,6 +29,7 @@ public class SmashableTrigger : MonoBehaviour
                 cahceGiant = _other.GetComponent<GiantController>();
                 if (cahceGiant.m_Hands.childCount <= 0)
                 {
+                    shaderSwap.swapToHighLight();
                     m_Highlight.m_Change = true;
                     m_Model.GetComponent<UIPromptControl>().m_CanInteract = true;
                 }
@@ -40,6 +43,7 @@ public class SmashableTrigger : MonoBehaviour
         {
             if (_other.GetComponent<CharacterSwapper>().m_IsGiant)
             {
+                shaderSwap.swapToStandard();
                 m_Highlight.m_Change = false;
                 m_Model.GetComponent<UIPromptControl>().m_CanInteract = false;
                 m_GiantInRange = false;
