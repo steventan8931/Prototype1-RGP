@@ -125,4 +125,9 @@ public class GiantController : NewCharacterMotor
             }
         }
     }
+
+    public void StopSnoring()
+    {
+        m_SnoringFX.Stop();
+    }
 }

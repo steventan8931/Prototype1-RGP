@@ -26,6 +26,7 @@ public class OldRoomDisable : MonoBehaviour
                 if (m_Giant.GetComponent<GiantOneAI>() != null)
                 {
                     m_Giant.GetComponent<GiantOneAI>().enabled = false;
+                    m_Giant.StopSnoring();
                 }
                 m_MusicBox.isactive = false;
                 musicBoxSfx.Stop();
@@ -51,6 +52,7 @@ public class OldRoomDisable : MonoBehaviour
                 m_Giant.m_Animation.SetBool("Pushing", false);
                 Debug.Log("1 time");
                 m_Giant.GetComponent<GiantOneAI>().enabled = false;
+                m_Giant.StopSnoring();
 
             }
         }

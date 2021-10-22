@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127196937}
-  m_LocalRotation: {x: 0.13874267, y: 0.73894995, z: -0.16031025, w: 0.63953435}
+  m_LocalRotation: {x: 0.15349513, y: 0.7350451, z: -0.17735595, w: 0.63615483}
   m_LocalPosition: {x: -0.00002670288, y: 0.000004782119, z: -0.000012104743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -286,7 +286,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGiantItem: 0
-  m_PromptCanvas: {fileID: 192160191}
   m_InRange: 0
   m_CanInteract: 0
   m_Giant: {fileID: 447341132}
@@ -541,7 +540,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117402018}
-  m_LocalRotation: {x: 0.12711775, y: 0.7417366, z: -0.14687823, w: 0.64194614}
+  m_LocalRotation: {x: 0.1419291, y: 0.7381416, z: -0.16399194, w: 0.63883483}
   m_LocalPosition: {x: -0.00002670288, y: 0.000004782119, z: -0.000012104743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -904,6 +903,7 @@ MonoBehaviour:
   m_PickedUp: 0
   m_BoyInRange: 0
   cahceGiant: {fileID: 447341132}
+  shaderSwap: {fileID: 0}
 --- !u!1 &1339814243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,8 +1065,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738153518}
-  m_LocalRotation: {x: -0.13317001, y: 0.59373915, z: -0.46820948, w: 0.640718}
-  m_LocalPosition: {x: -6.0444393, y: -3.47351, z: -6.585144}
+  m_LocalRotation: {x: -0.12973681, y: 0.5912232, z: -0.4713825, w: 0.6414219}
+  m_LocalPosition: {x: -4.5356717, y: -0.5356518, z: -3.148354}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 981037812}
@@ -1173,7 +1173,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040728684}
-  m_LocalRotation: {x: 0.15035252, y: 0.7359117, z: -0.17372485, w: 0.6369049}
+  m_LocalRotation: {x: 0.16504104, y: 0.7316974, z: -0.19069663, w: 0.63325757}
   m_LocalPosition: {x: -0.000049591064, y: 0.000008103124, z: -0.000022983466}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1581,6 +1581,7 @@ MonoBehaviour:
   m_PushStrength: 10
   m_Facing: 0
   m_IsBaby: 1
+  m_SnoringFX: {fileID: 0}
 --- !u!114 &447341134
 MonoBehaviour:
   m_ObjectHideFlags: 0
