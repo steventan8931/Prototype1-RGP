@@ -5,7 +5,7 @@ using UnityEngine;
 public class WinTrigger : MonoBehaviour
 {
     public AudioSource[] m_AudioSources;
-
+    public GameObject baby;
     private void OnTriggerEnter(Collider _other)
     {
         if (_other.tag == "Boy")
@@ -15,11 +15,11 @@ public class WinTrigger : MonoBehaviour
             {
                 m_AudioSources[i].Stop();
             }
-            _other.GetComponent<CharacterMotor>().m_Look.m_CursorLocked = false;
-            _other.GetComponent<CharacterMotor>().m_Look.LockCursor();
-            _other.GetComponent<CharacterMotor>().enabled = false;
-            _other.GetComponent<CharacterSwapper>().enabled = false;
-            _other.GetComponent<Boy>().m_GameWon = true;
+            _other.gameObject.GetComponent<Boy>().m_Look.m_CursorLocked = false;
+            _other.gameObject.GetComponent<Boy>().m_Look.LockCursor();
+            _other.gameObject.GetComponent<Boy>().enabled = false;
+            baby.GetComponent<CharacterSwapper>().enabled = false;
+            _other.gameObject.GetComponent<Boy>().m_GameWon = true;
 
 
         }
