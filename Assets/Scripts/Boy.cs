@@ -11,9 +11,11 @@ public class Boy : NewCharacterMotor
 
     public bool m_Detected = false;
     public bool m_Killed = false;
+    public GameObject detectedUI;
+    public bool isDetectedUiShown = false;
 
     public float m_RespawnTimer = 0.0f;
-    public float m_RespawnDelay = 0.5f;
+    public float m_RespawnDelay = 1.5f;
 
     public Transform m_Hands;
 
@@ -39,12 +41,15 @@ public class Boy : NewCharacterMotor
         {
             m_RoomsCleared = 1;
         }
-            if (m_Detected)
+        if (m_Detected)
         {
             m_Controller.enabled = false;
-            transform.position = m_Checkpoints[m_RoomsCleared].position;
-            m_Controller.enabled = true;
-            m_Detected = false;
+            Invoke(nameof(delayTransport), 1.5f);
+            if (isDetectedUiShown == false)
+            {
+                detectedUI.SetActive(true);
+                isDetectedUiShown = true;
+            }
         }
 
         if (m_IsRiding)
@@ -185,4 +190,13 @@ public class Boy : NewCharacterMotor
         }
     }
 
+    void delayTransport()
+    {
+
+        transform.position = m_Checkpoints[m_RoomsCleared].position;
+        m_Controller.enabled = true;
+        m_Detected = false;
+        isDetectedUiShown = false;
+        detectedUI.SetActive(false);
+    }
 }

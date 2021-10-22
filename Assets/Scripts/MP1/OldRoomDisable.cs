@@ -5,6 +5,7 @@ using UnityEngine;
 public class OldRoomDisable : MonoBehaviour
 {
     public MusicBoxScr m_MusicBox;
+    public AudioSource musicBoxSfx;
     public GiantController m_Giant;
     public butcherScr butcher;
     public int m_RoomsCleared = 0;
@@ -27,6 +28,7 @@ public class OldRoomDisable : MonoBehaviour
                     m_Giant.GetComponent<GiantOneAI>().enabled = false;
                 }
                 m_MusicBox.isactive = false;
+                musicBoxSfx.Stop();
                 m_Giant.m_Controllable = false;
                 butcher.isIdling = false;
                 butcher.isSleep = false;

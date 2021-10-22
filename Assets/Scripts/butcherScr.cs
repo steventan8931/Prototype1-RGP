@@ -44,7 +44,7 @@ public class butcherScr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //m_ScoutingCone.SetActive(true);
+        m_ScoutingCone.SetActive(true);
         isIdling = true;
     }
 

@@ -12,6 +12,7 @@ public class GiantController : NewCharacterMotor
     public bool m_Facing = false;
 
     public bool m_IsBaby = false;
+    public AudioSource m_SnoringFX;
 
     private void Start()
     {
@@ -21,12 +22,20 @@ public class GiantController : NewCharacterMotor
         {
             m_Animation.speed = 0.0f;
         }
-
+        m_SnoringFX = GameObject.Find("SnoringSFX").GetComponent<AudioSource>();
         //m_Controllable = false;
     }
 
     protected override void Update()
     {
+        if (m_Controllable)
+        {
+            if (!m_SnoringFX.isPlaying)
+            {
+                m_SnoringFX.Play();
+            }
+        }
+
         if (m_IsControl)
         {
             if (m_Velocity.x == 0)
@@ -69,9 +78,12 @@ public class GiantController : NewCharacterMotor
         }
         else
         {
-            //m_Animation.SetBool("Walking", false);
-            //m_Animation.SetBool("Pushing", false);
-            //m_Animation.SetBool("Holding", false);
+            m_Animation.SetBool("Walking", false);
+            if (!m_IsBaby)
+            {
+                m_Animation.SetBool("Pushing", false);
+                m_Animation.SetBool("Holding", false);
+            }
         }
     }
 

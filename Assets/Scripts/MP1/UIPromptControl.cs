@@ -6,10 +6,6 @@ public class UIPromptControl : MonoBehaviour
 {
     public bool m_IsGiantItem = true;
 
-    public Canvas m_PromptCanvas;
-    GameObject m_InRangeUI;
-    GameObject m_InteractUI;
-
     public bool m_InRange = false;
     public bool m_CanInteract = false;
 
@@ -21,9 +17,6 @@ public class UIPromptControl : MonoBehaviour
     {
         m_Boy = FindObjectOfType<Boy>();
         m_Baby = FindObjectOfType<weeBabyScr>();
-
-        m_InRangeUI = m_PromptCanvas.transform.GetChild(0).gameObject;
-        m_InteractUI = m_PromptCanvas.transform.GetChild(1).gameObject;
     }
     private void Update()
     {
@@ -66,24 +59,5 @@ public class UIPromptControl : MonoBehaviour
         }
 
 
-        if (m_InRange)
-        {
-            if (m_CanInteract)
-            {
-                m_InteractUI.SetActive(true);
-                m_InRangeUI.SetActive(false);
-            }
-            else
-            {
-                m_InRangeUI.SetActive(true);
-                m_InteractUI.SetActive(false);
-            }
-
-        }
-        else
-        {
-            m_InteractUI.SetActive(false);
-            m_InRangeUI.SetActive(false);
-        }
     }
 }
