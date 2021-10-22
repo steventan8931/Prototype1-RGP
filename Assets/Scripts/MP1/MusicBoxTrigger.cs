@@ -5,6 +5,7 @@ using UnityEngine;
 public class MusicBoxTrigger : MonoBehaviour
 {
     public MusicBoxScr m_MusicBox;
+    public GameObject m_Camera;
 
     private void OnTriggerEnter(Collider _other)
     {
@@ -16,6 +17,7 @@ public class MusicBoxTrigger : MonoBehaviour
                 {
                     m_MusicBox.startMusic();
                     _other.GetComponent<Boy>().m_MusicPieceCollected = false;
+                    m_Camera.SetActive(true);
                 }
 
             }

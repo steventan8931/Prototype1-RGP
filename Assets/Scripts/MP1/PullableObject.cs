@@ -15,6 +15,7 @@ public class PullableObject : MonoBehaviour
     private void Start()
     {
         m_Highlight = m_Model.GetComponent<HighlightObject>();
+        shaderSwap.swapToStandard();
     }
 
     private void OnTriggerStay(Collider _other)

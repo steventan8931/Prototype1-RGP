@@ -44,9 +44,9 @@ public class MusicBoxScr : MonoBehaviour
     public void startMusic()
     {
         isactive = true;
-        m_Giant.m_IsControl = true;
+        //m_Giant.m_IsControl = true;
         m_Giant.m_Controllable = true;
-        m_Giant.GetComponent<CharacterSwapper>().Swap();
+        //m_Giant.GetComponent<CharacterSwapper>().Swap();
         m_SoothingMusic.Play();
         //play music 
     }
