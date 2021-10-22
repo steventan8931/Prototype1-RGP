@@ -21,6 +21,7 @@ public class BabyRide : MonoBehaviour
         m_Highlight = UIControl.GetComponent<HighlightObject>();
         cacheBoy = FindObjectOfType<Boy>();
         m_Baby = FindObjectOfType<weeBabyScr>();
+        shaderSwap.swapToStandard();
     }
 
     private void OnTriggerStay(Collider _other)
@@ -29,10 +30,14 @@ public class BabyRide : MonoBehaviour
         {
             if (_other.GetComponent<Boy>())
             {
-                m_BoyInRange = true;
-                m_Highlight.m_Change = true;
-                shaderSwap.swapToHighLight();
-                UIControl.GetComponent<UIPromptControl>().m_CanInteract = true;
+                if (cahceGiant.m_Controllable)
+                {
+                    m_BoyInRange = true;
+                    m_Highlight.m_Change = true;
+                    shaderSwap.swapToHighLight();
+                    UIControl.GetComponent<UIPromptControl>().m_CanInteract = true;
+                }
+
             }
         }
 
@@ -44,10 +49,14 @@ public class BabyRide : MonoBehaviour
         {
             if (_other.GetComponent<Boy>())
             {
-                shaderSwap.swapToStandard();
-                m_Highlight.m_Change = false;
-                UIControl.GetComponent<UIPromptControl>().m_CanInteract = false;
-                m_BoyInRange = false;
+                if (cahceGiant.m_Controllable)
+                {
+                    shaderSwap.swapToStandard();
+                    m_Highlight.m_Change = false;
+                    UIControl.GetComponent<UIPromptControl>().m_CanInteract = false;
+                    m_BoyInRange = false;
+                }
+
             }
         }
     }
