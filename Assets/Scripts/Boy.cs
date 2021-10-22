@@ -10,6 +10,7 @@ public class Boy : NewCharacterMotor
     public Transform[] m_Checkpoints;
 
     public bool m_Detected = false;
+    public bool m_Inwater = false;
     public bool m_Killed = false;
     public GameObject detectedUI;
     public bool isDetectedUiShown = false;
@@ -59,6 +60,11 @@ public class Boy : NewCharacterMotor
                 delayTransport();
             }
             //Invoke(nameof(delayTransport), 1.5f);
+        }
+
+        if(m_Inwater)
+        {
+            touchedWater();
         }
 
         if (m_IsRiding)
@@ -200,7 +206,7 @@ public class Boy : NewCharacterMotor
         transform.position = m_Checkpoints[m_RoomsCleared].position;
         Debug.Log("teleporting");
         m_Controller.enabled = true;
-        m_Detected = false;
+        m_Inwater = false;
         isWaterUiShown = false;
         WaterUI.SetActive(false);
         m_RespawnTimer = 0.0f;

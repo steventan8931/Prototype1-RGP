@@ -15,4 +15,19 @@ public class waterInteractScr : MonoBehaviour
     {
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Boy")
+        {
+            other.gameObject.GetComponent<Boy>().m_Inwater = true;
+        }
+    }
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Boy")
+        {
+            //Boy scr die
+            collision.gameObject.GetComponent<Boy>().m_Inwater = true;
+        }
+    }*/
 }
