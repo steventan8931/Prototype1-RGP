@@ -14,6 +14,9 @@ public class Boy : NewCharacterMotor
     public GameObject detectedUI;
     public bool isDetectedUiShown = false;
 
+    public GameObject WaterUI;
+    public bool isWaterUiShown = false;
+
     public float m_RespawnTimer = 0.0f;
     public float m_RespawnDelay = 1.5f;
 
@@ -190,5 +193,32 @@ public class Boy : NewCharacterMotor
         isDetectedUiShown = false;
         detectedUI.SetActive(false);
         m_RespawnTimer = 0.0f;
+    }
+
+    void delayWaterTransport()
+    {
+        transform.position = m_Checkpoints[m_RoomsCleared].position;
+        Debug.Log("teleporting");
+        m_Controller.enabled = true;
+        m_Detected = false;
+        isWaterUiShown = false;
+        WaterUI.SetActive(false);
+        m_RespawnTimer = 0.0f;
+    }
+
+    public void touchedWater()
+    {
+        if (isWaterUiShown == false)
+        {
+            WaterUI.SetActive(true);
+            isWaterUiShown = true;
+        }
+        m_Controller.enabled = false;
+        m_RespawnTimer += Time.deltaTime;
+
+        if (m_RespawnTimer > m_RespawnDelay)
+        {
+            delayWaterTransport();
+        }
     }
 }
