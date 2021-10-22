@@ -30,12 +30,16 @@ public class GiantController : NewCharacterMotor
     {
         if (m_Controllable)
         {
+            GetComponent<CharacterSwapper>().enabled = true;
             if (!m_SnoringFX.isPlaying)
             {
                 m_SnoringFX.Play();
             }
         }
-
+        else
+        {
+            GetComponent<CharacterSwapper>().enabled = false;
+        }
         if (m_IsControl)
         {
             if (m_Velocity.x == 0)
@@ -124,5 +128,10 @@ public class GiantController : NewCharacterMotor
 
             }
         }
+    }
+
+    public void StopSnoring()
+    {
+        m_SnoringFX.Stop();
     }
 }

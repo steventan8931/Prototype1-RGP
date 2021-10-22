@@ -85,7 +85,7 @@ public class weeBabyScr : MonoBehaviour
         if(Vector3.Distance(transform.position,target)<0.2f)
         {
             babyAnimator.SetBool("Walking", false);
-            babyAnimator.speed = 0.0f;
+            babyAnimator.speed = 0.2f;
         }
         else
         {
@@ -122,7 +122,7 @@ public class weeBabyScr : MonoBehaviour
             //print("targetlost");
             collidedWithPlayer = false;
             babyAnimator.SetBool("Walking", false);
-            babyAnimator.speed = 0.0f;
+            babyAnimator.speed = 0.2f;
         }
         
     }
@@ -137,7 +137,7 @@ public class weeBabyScr : MonoBehaviour
         {
             collidedWithPlayer = true;
             babyAnimator.SetBool("Walking", false);
-            babyAnimator.speed = 0.0f;
+            babyAnimator.speed = 0.2f;
         }
         
     }
