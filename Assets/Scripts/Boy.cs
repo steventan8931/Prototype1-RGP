@@ -25,6 +25,7 @@ public class Boy : NewCharacterMotor
     public bool m_CanClimb = false;
     public bool m_IsClimbing = false;
     public bool m_ZHorizontal = false;
+    public bool m_XReverse = false;
     public float m_ClimbSpeed = 20.0f;
 
     //Collectables
@@ -177,7 +178,14 @@ public class Boy : NewCharacterMotor
         }
         else
         {
-            trueVelocity.x *= -m_ClimbSpeed;
+            if (m_XReverse)
+            {
+                trueVelocity.x *= m_ClimbSpeed;
+            }
+            else
+            {
+                trueVelocity.x *= -m_ClimbSpeed;
+            }
         }
 
         m_Controller.Move(trueVelocity * Time.deltaTime);

@@ -6,6 +6,7 @@ public class ClimbTrigger : MonoBehaviour
 {
     public bool m_BoyTriggered = false;
     public bool m_ZHorizontal = false;
+    public bool m_XReverse = false;
     Boy m_cacheBoy;
 
     public HighLightSwap shaderSwap;
@@ -46,6 +47,7 @@ public class ClimbTrigger : MonoBehaviour
         {
             m_cacheBoy.m_CanClimb = true;
             m_cacheBoy.m_ZHorizontal = m_ZHorizontal;
+            m_cacheBoy.m_XReverse = m_XReverse;
         }
     }
 }
