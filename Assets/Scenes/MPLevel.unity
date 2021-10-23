@@ -2955,6 +2955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BoyTriggered: 0
   m_ZHorizontal: 0
+  m_XReverse: 1
   shaderSwap: {fileID: 276927883}
 --- !u!65 &276927881
 BoxCollider:
@@ -28503,6 +28504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BoyTriggered: 0
   m_ZHorizontal: 1
+  m_XReverse: 0
   shaderSwap: {fileID: 819673855}
 --- !u!65 &819673853
 BoxCollider:
@@ -29367,6 +29369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BoyTriggered: 0
   m_ZHorizontal: 0
+  m_XReverse: 0
   shaderSwap: {fileID: 874434520}
 --- !u!65 &874434518
 BoxCollider:
@@ -46523,7 +46526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BoyTriggered: 0
-  m_ZHorizontal: 1
+  m_ZHorizontal: 0
+  m_XReverse: 1
   shaderSwap: {fileID: 1082230620}
 --- !u!65 &1082230618
 BoxCollider:
