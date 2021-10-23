@@ -235,4 +235,31 @@ public class Boy : NewCharacterMotor
             m_MusicPieceOnBack.SetActive(false);
         }
     }
+
+    void delayWaterTransport()
+    {
+        transform.position = m_Checkpoints[m_RoomsCleared].position;
+        Debug.Log("teleporting");
+        m_Controller.enabled = true;
+        m_Inwater = false;
+        isWaterUiShown = false;
+        WaterUI.SetActive(false);
+        m_RespawnTimer = 0.0f;
+    }
+
+    public void touchedWater()
+    {
+        if (isWaterUiShown == false)
+        {
+            WaterUI.SetActive(true);
+            isWaterUiShown = true;
+        }
+        m_Controller.enabled = false;
+        m_RespawnTimer += Time.deltaTime;
+
+        if (m_RespawnTimer > m_RespawnDelay)
+        {
+            delayWaterTransport();
+        }
+    }
 }
