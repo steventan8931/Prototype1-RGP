@@ -9,7 +9,10 @@ public class ClimbTrigger : MonoBehaviour
     Boy m_cacheBoy;
 
     public HighLightSwap shaderSwap;
-
+    private void Start()
+    {
+        shaderSwap.swapToStandard();
+    }
     private void OnTriggerEnter(Collider _other)
     {
         if (_other.tag == "Boy")
