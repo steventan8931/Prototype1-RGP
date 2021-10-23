@@ -31,6 +31,10 @@ public class GiantController : NewCharacterMotor
         if (m_Controllable)
         {
             GetComponent<CharacterSwapper>().enabled = true;
+            if (m_IsBaby)
+            {
+                transform.rotation = Quaternion.Euler(Vector3.zero);
+            }
             if (!m_SnoringFX.isPlaying)
             {
                 m_SnoringFX.Play();
