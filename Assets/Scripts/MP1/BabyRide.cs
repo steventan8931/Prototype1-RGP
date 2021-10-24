@@ -87,6 +87,10 @@ public class BabyRide : MonoBehaviour
                 m_PickedUp = true;
             }
         }
+        else
+        {
+            shaderSwap.swapToStandard();
+        }
 
     }
 
