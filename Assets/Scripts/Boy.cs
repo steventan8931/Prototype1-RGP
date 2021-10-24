@@ -37,6 +37,7 @@ public class Boy : NewCharacterMotor
     public GameObject m_MusicPieceOnBack;
     //Riding Baby
     public bool m_IsRiding = false;
+    BabyRide cacheBabyRide;
 
     public int m_RoomsCleared = 0;
 
@@ -45,6 +46,7 @@ public class Boy : NewCharacterMotor
     private void Start()
     {
         cacheTriggers = FindObjectsOfType<ClimbTrigger>();
+        cacheBabyRide = FindObjectOfType<BabyRide>(); 
     }
 
     protected override void Update()
@@ -239,6 +241,7 @@ public class Boy : NewCharacterMotor
     void delayWaterTransport()
     {
         transform.position = m_Checkpoints[m_RoomsCleared].position;
+        cacheBabyRide.m_BoyInRange = false;
         Debug.Log("teleporting");
         m_Controller.enabled = true;
         m_Inwater = false;

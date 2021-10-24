@@ -33,6 +33,10 @@ public class PullableObject : MonoBehaviour
                     m_Model.GetComponent<UIPromptControl>().m_CanInteract = true;
                 }
             }
+            else
+            {
+                shaderSwap.swapToStandard();
+            }
         }
 
     }
