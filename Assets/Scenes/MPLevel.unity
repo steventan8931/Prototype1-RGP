@@ -512,6 +512,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1378657766911869695, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249952741363116137, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3939231912942137405, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6465900991032566380, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
         type: 3}
       propertyPath: boy
@@ -607,6 +622,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465900991099490706, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6465900991099490707, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
         type: 3}
       propertyPath: m_Enabled
@@ -622,19 +642,39 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465900992079426323, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6465900992124499816, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
         type: 3}
       propertyPath: Manager
       value: 
       objectReference: {fileID: 1957806518}
+    - target: {fileID: 6465900992124499823, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6465900992361172913, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465900992361172914, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6465900992561297324, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
         type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465900992976984350, guid: 4c9ac12d71a96454e8e1cc8a46d24fb2,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -49526,11 +49566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 995236435, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.08107699
+      value: 0.081077024
       objectReference: {fileID: 0}
     - target: {fileID: 995236435, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.032300696
+      value: -0.032300707
       objectReference: {fileID: 0}
     - target: {fileID: 1263400692, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LookAt
@@ -55923,6 +55963,8 @@ MonoBehaviour:
   baby: {fileID: 0}
   boyIcon: {fileID: 276003282}
   giantIcon: {fileID: 1340637417}
+  butcherIcon: {fileID: 0}
+  babyIcon: {fileID: 0}
   GameManager: {fileID: 1957806518}
   WinUI: {fileID: 873215934}
   BurnUI: {fileID: 1748787352}
@@ -85037,7 +85079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 4.21
-  angle: 360
+  angle: 38
   playerRef: {fileID: 0}
   targetMask:
     serializedVersion: 2
