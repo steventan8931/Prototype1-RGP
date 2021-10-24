@@ -86,6 +86,12 @@ public class InGameScr : MonoBehaviour
                 butcherIcon.GetComponent<CanvasGroup>().alpha = 0f;
                 babyIcon.GetComponent<CanvasGroup>().alpha = 0.4f;
             }
+            else
+            {
+                giantIcon.GetComponent<CanvasGroup>().alpha = 0F;
+                butcherIcon.GetComponent<CanvasGroup>().alpha = 0f;
+                babyIcon.GetComponent<CanvasGroup>().alpha = 0f;
+            }
         }
     }
 
