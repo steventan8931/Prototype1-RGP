@@ -70,9 +70,22 @@ public class InGameScr : MonoBehaviour
         else
         {
             boyIcon.GetComponent<CanvasGroup>().alpha = 1F;
-            giantIcon.GetComponent<CanvasGroup>().alpha = 0.4F;
-            butcherIcon.GetComponent<CanvasGroup>().alpha = 0f;
-            babyIcon.GetComponent<CanvasGroup>().alpha = 0f;
+            if (giant.GetComponent<GiantController>().m_Controllable == true)
+            {
+                giantIcon.GetComponent<CanvasGroup>().alpha = 0.4F;
+                butcherIcon.GetComponent<CanvasGroup>().alpha = 0f;
+                babyIcon.GetComponent<CanvasGroup>().alpha = 0f;
+            }else if (butcher.GetComponent<GiantController>().m_Controllable == true)
+            {
+                giantIcon.GetComponent<CanvasGroup>().alpha = 0F;
+                butcherIcon.GetComponent<CanvasGroup>().alpha = 0.4f;
+                babyIcon.GetComponent<CanvasGroup>().alpha = 0f;
+            }else if (baby.GetComponent<GiantController>().m_Controllable == true)
+            {
+                giantIcon.GetComponent<CanvasGroup>().alpha = 0F;
+                butcherIcon.GetComponent<CanvasGroup>().alpha = 0f;
+                babyIcon.GetComponent<CanvasGroup>().alpha = 0.4f;
+            }
         }
     }
 
