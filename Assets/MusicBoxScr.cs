@@ -20,6 +20,12 @@ public class MusicBoxScr : MonoBehaviour
         {
             m_SoothingMusic = GameObject.Find("MusicBoxBabySFX").GetComponent<AudioSource>();
         }
+
+        if (!m_BabyMusic)
+        {
+            m_MusicComplete.SetActive(false);
+            m_MusicMissing.SetActive(true);
+        }
     }
     private void Update()
     {
