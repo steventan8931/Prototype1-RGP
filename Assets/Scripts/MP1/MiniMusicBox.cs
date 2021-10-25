@@ -21,6 +21,7 @@ public class MiniMusicBox : MonoBehaviour
                 }
 
                 m_MusicBox.isactive = true;
+                m_MusicBox.startMusic();
             }
                        
         }

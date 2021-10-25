@@ -18,11 +18,13 @@ public class GiantController : NewCharacterMotor
     {
         m_IsGiant = true;
         m_Hands.gameObject.SetActive(true);
+        m_SnoringFX = GameObject.Find("SnoringSFX").GetComponent<AudioSource>();
         if (m_IsBaby)
         {
             m_Animation.speed = 0.0f;
+            m_SnoringFX = GameObject.Find("SnoringBabySFX").GetComponent<AudioSource>();
         }
-        m_SnoringFX = GameObject.Find("SnoringSFX").GetComponent<AudioSource>();
+
         //m_Controllable = false;
     }
 
