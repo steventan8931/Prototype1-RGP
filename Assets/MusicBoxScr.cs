@@ -16,29 +16,43 @@ public class MusicBoxScr : MonoBehaviour
     private void Start()
     {
         m_SoothingMusic = GameObject.Find("MusicBoxSFX").GetComponent<AudioSource>();
+        if (m_BabyMusic)
+        {
+            m_SoothingMusic = GameObject.Find("MusicBoxBabySFX").GetComponent<AudioSource>();
+        }
+
+        if (!m_BabyMusic)
+        {
+            m_MusicComplete.SetActive(false);
+            m_MusicMissing.SetActive(true);
+        }
     }
     private void Update()
     {
-        if (isactive)
+        if (m_Giant.m_Controllable)
         {
-            m_Giant.m_Controllable = true;
-            if (!m_BabyMusic)
+            if (isactive)
             {
-                m_MusicComplete.SetActive(true);
-                m_MusicMissing.SetActive(false);
-            }
+                m_Giant.m_Controllable = true;
+                if (!m_BabyMusic)
+                {
+                    m_MusicComplete.SetActive(true);
+                    m_MusicMissing.SetActive(false);
+                }
 
-        }
-        else
-        {
-            m_Giant.m_Controllable = false;
-            m_SoothingMusic.Stop();
-            if (!m_BabyMusic)
+            }
+            else
             {
-                m_MusicComplete.SetActive(false);
-                m_MusicMissing.SetActive(true);
+                m_SoothingMusic.Stop();
+                if (!m_BabyMusic)
+                {
+                    m_MusicComplete.SetActive(false);
+                    m_MusicMissing.SetActive(true);
+                }
+                m_Giant.m_Controllable = false;
             }
         }
+
     }
 
     public void startMusic()

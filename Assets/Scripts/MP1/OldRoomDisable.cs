@@ -51,7 +51,7 @@ public class OldRoomDisable : MonoBehaviour
                     }
                 }
                 m_MusicBox.isactive = false;
-                musicBoxSfx.Stop();
+                m_MusicBox.m_SoothingMusic.Stop(); 
                 m_Giant.m_Controllable = false;
                 
 
@@ -72,6 +72,7 @@ public class OldRoomDisable : MonoBehaviour
                 m_Giant.m_Animation.SetBool("Walking", false);
                 m_Giant.m_Animation.SetBool("Pushing", false);
                 m_Giant.GetComponent<GiantOneAI>().enabled = false;
+                m_MusicBox.m_SoothingMusic.Stop();
                 m_Giant.StopSnoring();
 
             }

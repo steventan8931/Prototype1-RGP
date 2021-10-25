@@ -80,11 +80,13 @@ public class Boy : NewCharacterMotor
 
         if (m_IsRiding)
         {
+            m_Animation.SetBool("Riding", true);
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                m_IsRiding = false;
                 transform.parent = null;
                 transform.localRotation = Quaternion.Euler(Vector3.zero);
+                m_Animation.SetBool("Riding", false);
+                m_IsRiding = false;
             }
             return;
         }
