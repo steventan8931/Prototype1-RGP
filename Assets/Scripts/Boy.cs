@@ -58,6 +58,8 @@ public class Boy : NewCharacterMotor
         }
         if (m_Detected)
         {
+            m_Animation.SetBool("Dead", true);
+            m_Animation.speed = 0.0f;
             if (isDetectedUiShown == false)
             {
                 detectedUI.SetActive(true);
@@ -75,6 +77,7 @@ public class Boy : NewCharacterMotor
 
         if(m_Inwater)
         {
+            m_Animation.SetBool("Dead", true);
             touchedWater();
         }
 
@@ -212,6 +215,7 @@ public class Boy : NewCharacterMotor
 
     void delayTransport()
     {
+        m_Animation.SetBool("Dead", false);
         transform.position = m_Checkpoints[m_RoomsCleared].position;
         Debug.Log("teleporting");
         m_Controller.enabled = true;
@@ -242,6 +246,7 @@ public class Boy : NewCharacterMotor
 
     void delayWaterTransport()
     {
+        m_Animation.SetBool("Dead", false);
         transform.position = m_Checkpoints[m_RoomsCleared].position;
         cacheBabyRide.m_BoyInRange = false;
         Debug.Log("teleporting");
