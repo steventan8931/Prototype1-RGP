@@ -642,8 +642,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 471ceb603b95fb44d891bb8bde19b2c4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.246
-  m_Pitch: -0.46
+  m_Volume: 0.58
+  m_Pitch: 0.5
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -51203,11 +51203,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 159699524, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.082061365
+      value: 0.0820614
       objectReference: {fileID: 0}
     - target: {fileID: 159699524, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.034444075
+      value: -0.03444409
       objectReference: {fileID: 0}
     - target: {fileID: 159699525, guid: 365a8920ac094b24e892f22ffadea3f1, type: 3}
       propertyPath: m_LookAt
@@ -69449,7 +69449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standard: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  Highlight: {fileID: 4800000, guid: d8c8b59e6ac21b940bf5ac3803b4eacd, type: 3}
+  Highlight: {fileID: 4800000, guid: da2acacbd215f8e4695fdf9a2c89bc3f, type: 3}
   tableMat: {fileID: 2100000, guid: 8f160c6b038f8e14db4aba7774f7666a, type: 2}
 --- !u!1001 &1677522400
 PrefabInstance:
