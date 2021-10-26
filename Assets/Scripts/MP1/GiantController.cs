@@ -13,7 +13,7 @@ public class GiantController : NewCharacterMotor
 
     public bool m_IsBaby = false;
     public AudioSource m_SnoringFX;
-
+    public ParticleSystem sleepAura;
     private void Start()
     {
         m_IsGiant = true;
@@ -33,6 +33,7 @@ public class GiantController : NewCharacterMotor
         if (m_Controllable)
         {
             GetComponent<CharacterSwapper>().enabled = true;
+            sleepAura.gameObject.SetActive(true);
             if (m_IsBaby)
             {
                 transform.rotation = Quaternion.Euler(Vector3.zero);
