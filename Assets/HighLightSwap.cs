@@ -7,10 +7,10 @@ public class HighLightSwap : MonoBehaviour
     public Shader standard;
     public Shader Highlight;
     public Material tableMat;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame

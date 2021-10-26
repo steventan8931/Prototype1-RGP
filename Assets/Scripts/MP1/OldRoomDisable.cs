@@ -83,7 +83,7 @@ public class OldRoomDisable : MonoBehaviour
     {
         if (triggered)
         {
-            Invoke("SetUpButcher", 1.5f);
+            Invoke("SetUpButcher", 2.5f);
             triggered = false;
         }
     }
