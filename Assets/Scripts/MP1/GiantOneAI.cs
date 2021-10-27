@@ -88,27 +88,27 @@ public class GiantOneAI : MonoBehaviour
         m_GiantController.m_Animation.SetBool("Reading", false);
         m_GiantController.m_Animation.SetBool("LookAround", true);
 
-        //Update with actual FOV
-        if (m_ScoutRotation >= m_ScoutRotationExtents.y)
-        {
-            m_ScoutingLeft = true;
+        ////Update with actual FOV
+        //if (m_ScoutRotation >= m_ScoutRotationExtents.y)
+        //{
+        //    m_ScoutingLeft = true;
 
-        }
-        if (m_ScoutRotation <= m_ScoutRotationExtents.x)
-        {
-            m_ScoutingLeft = false;
+        //}
+        //if (m_ScoutRotation <= m_ScoutRotationExtents.x)
+        //{
+        //    m_ScoutingLeft = false;
 
-        }
-        if (m_ScoutingLeft)
-        {
-            m_ScoutRotation -= Time.deltaTime * m_ScoutSpeed;
-        }
-        else
-        {
-            m_ScoutRotation += Time.deltaTime * m_ScoutSpeed;
-        }
+        //}
+        //if (m_ScoutingLeft)
+        //{
+        //    m_ScoutRotation -= Time.deltaTime * m_ScoutSpeed;
+        //}
+        //else
+        //{
+        //    m_ScoutRotation += Time.deltaTime * m_ScoutSpeed;
+        //}
 
-        m_ScoutingCone.transform.localRotation = Quaternion.Euler(-70, m_ScoutRotation, m_ScoutingCone.transform.localRotation.y);
+        //m_ScoutingCone.transform.localRotation = Quaternion.Euler(-70, m_ScoutRotation, m_ScoutingCone.transform.localRotation.y);
 
     }
 
