@@ -15,7 +15,14 @@ public class CharacterSwapperEffect : MonoBehaviour
     {
         if (m_Swapper.m_IsGiant)
         {
-            transform.position = Vector3.MoveTowards(transform.position, m_Swapper.m_Giant.transform.position, Time.deltaTime * 15f);
+            if (m_Swapper.m_Giant.GetComponent<GiantController>().m_IsBaby)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, m_Swapper.m_Giant.GetComponent<GiantController>().m_Model.transform.position, Time.deltaTime * 15f);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, m_Swapper.m_Giant.transform.position, Time.deltaTime * 15f);
+            }
         }
         else
         {

@@ -73,6 +73,7 @@ public class BabyRide : MonoBehaviour
         }
         else
         {
+            shaderSwap.swapToStandard();
             m_Highlight.m_Change = false;
 
         }
