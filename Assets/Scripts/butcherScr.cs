@@ -19,6 +19,8 @@ public class butcherScr : MonoBehaviour
     //for wander
     public bool isWandering = false;
     public float Wanderradius = 6.0f;
+    public Transform loc1, loc2, loc3;
+    public int wandertarget = 1;
 
     //setup for patroling
     public LayerMask groundMask;
@@ -97,8 +99,21 @@ public class butcherScr : MonoBehaviour
                     {
                         navMeshAgent.isStopped = false;
                     }
-                    
-                    navMeshAgent.SetDestination(GetRandPoint.Instance.GetRandomPoint(transform, Wanderradius));
+                    if(wandertarget == 1)
+                    {
+                        navMeshAgent.SetDestination(loc1.position);
+                        wandertarget = 2;
+                    }else if(wandertarget == 2)
+                    {
+                        navMeshAgent.SetDestination(loc2.position);
+                        wandertarget = 3;
+                    }
+                    else if (wandertarget == 3)
+                    {
+                        navMeshAgent.SetDestination(loc3.position);
+                        wandertarget = 1;
+                    }
+
                 }
                 //m_ScoutingCone.SetActive(false); //Have scotuing cone always on
                 currRest -= Time.deltaTime;
