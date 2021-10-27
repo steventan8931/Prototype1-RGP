@@ -65,9 +65,19 @@ public class CharacterSwapper : MonoBehaviour
         }
         else
         {
-            Instantiate(m_SwapperEffectPrefab, transform.position, Quaternion.identity);
-            Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);
-            Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, 2f, 0.0f), Quaternion.identity);
+            if (!m_Giant.GetComponent<GiantController>().m_IsBaby)
+            {
+                Instantiate(m_SwapperEffectPrefab, transform.position, Quaternion.identity);
+                Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);
+                Instantiate(m_SwapperEffectPrefab, transform.position + new Vector3(0.0f, 2f, 0.0f), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(m_SwapperEffectPrefab, m_Giant.GetComponent<GiantController>().m_Model.transform.position, Quaternion.identity);
+                Instantiate(m_SwapperEffectPrefab, m_Giant.GetComponent<GiantController>().m_Model.transform.position + new Vector3(0.0f, -2f, 0.0f), Quaternion.identity);
+                Instantiate(m_SwapperEffectPrefab, m_Giant.GetComponent<GiantController>().m_Model.transform.position + new Vector3(0.0f, 2f, 0.0f), Quaternion.identity);
+            }
+
         }
     }
 }
