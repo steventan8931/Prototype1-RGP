@@ -811,12 +811,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD -Move\r\nT - Swap Characters \uFF08if giant sleeping)\r\nSPACE -
-    Jump (boy only)\r\nMouse move -Camera\r\nR - reset yellow objects position\nPush
-    - walk into pushable object  (giant)\r\nPickup - walk to object -rightclick (pickup)
-    - leftclick (release) \nGet Key to advance to next room\r\nYellow Objects Interactables
-    - Giant\r\nBlue Objects Interactables - Boy\r\nRed - Fire, avoid or you will
-    get die\n"
+  m_text: "WASD -Move\r\nE - Climb up highlighted object (boy)\nT - Swap Characters
+    (if giant sleeping)\r\nSPACE - Jump (boy only)\r\nMouse move -Camera\r\nRight
+    click interact - giant pull, boy ride baby\nLeft click stop interact - giant
+    pull\r\nPush-walk into thing - giant\nTry to collect music box piece and return
+    it to music box to make giants sleeping and became controllable \nAvoid giants
+    view range and help the boy escape the giants house\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -843,8 +843,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
