@@ -12,7 +12,7 @@ public class MusicBoxScr : MonoBehaviour
     public bool m_BabyMusic = false;
 
     public AudioSource m_SoothingMusic;
-
+    public ParticleSystem musicNotes;
     private void Start()
     {
         m_SoothingMusic = GameObject.Find("MusicBoxSFX").GetComponent<AudioSource>();
@@ -58,6 +58,7 @@ public class MusicBoxScr : MonoBehaviour
     public void startMusic()
     {
         isactive = true;
+        musicNotes.gameObject.SetActive(true);
         //m_Giant.m_IsControl = true;
         m_Giant.m_Controllable = true;
         //m_Giant.GetComponent<CharacterSwapper>().Swap();

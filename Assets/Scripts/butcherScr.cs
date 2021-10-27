@@ -19,6 +19,8 @@ public class butcherScr : MonoBehaviour
     //for wander
     public bool isWandering = false;
     public float Wanderradius = 6.0f;
+    public Transform loc1, loc2, loc3,loc4;
+    public int wandertarget = 1;
 
     //setup for patroling
     public LayerMask groundMask;
@@ -68,9 +70,9 @@ public class butcherScr : MonoBehaviour
                 isSleep = true;
             }
         }
-        else if (isSleep == false && isBeingCtrled == false)
+        else if (isSleep == false && isBeingCtrled == false && isIdling == false)
         {
-            butcherMove();
+            butcherMove2();
             butcherAnim.SetBool("Walking", true);
         }
     }
@@ -97,11 +99,29 @@ public class butcherScr : MonoBehaviour
                     {
                         navMeshAgent.isStopped = false;
                     }
-                    
-                    navMeshAgent.SetDestination(GetRandPoint.Instance.GetRandomPoint(transform, Wanderradius));
+                    if(wandertarget == 1)
+                    {
+                        navMeshAgent.SetDestination(loc1.position);
+                        wandertarget = 2;
+                    }else if(wandertarget == 2)
+                    {
+                        navMeshAgent.SetDestination(loc2.position);
+                        wandertarget = 3;
+                    }
+                    else if (wandertarget == 3)
+                    {
+                        navMeshAgent.SetDestination(loc3.position);
+                        wandertarget = 4;
+                    }
+                    else if (wandertarget == 4)
+                    {
+                        navMeshAgent.SetDestination(loc4.position);
+                        wandertarget = 1;
+                    }
+
                 }
                 //m_ScoutingCone.SetActive(false); //Have scotuing cone always on
-                currRest -= Time.deltaTime;
+                //currRest -= Time.deltaTime;
             }
             else
             {
@@ -115,7 +135,9 @@ public class butcherScr : MonoBehaviour
         }
         else
         {
-            
+            //targetPosTransform = boy.transform;
+            navMeshAgent.isStopped = true;
+            navMeshAgent.ResetPath();
             navMeshAgent.isStopped = false;
             //print("agent waked");
             navMeshAgent.destination = targetPosTransform.position;
@@ -153,7 +175,50 @@ public class butcherScr : MonoBehaviour
             walkptSet = false;
         }
     }
+    void butcherMove2()
+    {
+        if(boy.GetComponent<Boy>().m_MusicPieceCollected == false)
+        {
 
+            if (!navMeshAgent.hasPath)
+            {
+                //wandering
+                //print("Butcher is roaming");
+                if (navMeshAgent.isStopped == true)
+                {
+                    navMeshAgent.isStopped = false;
+                }
+                if (wandertarget == 1)
+                {
+                    navMeshAgent.SetDestination(loc1.position);
+                    wandertarget = 2;
+                }
+                else if (wandertarget == 2)
+                {
+                    navMeshAgent.SetDestination(loc2.position);
+                    wandertarget = 3;
+                }
+                else if (wandertarget == 3)
+                {
+                    navMeshAgent.SetDestination(loc3.position);
+                    wandertarget = 4;
+                }
+                else if (wandertarget == 4)
+                {
+                    navMeshAgent.SetDestination(loc4.position);
+                    wandertarget = 1;
+                }
+
+            }
+        }
+        else
+        {
+            targetPosTransform = boy.transform;
+            navMeshAgent.isStopped = false;
+            //print("agent waked");
+            navMeshAgent.destination = targetPosTransform.position;
+        }
+    }
     void FindWalkPoint()
     {
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
