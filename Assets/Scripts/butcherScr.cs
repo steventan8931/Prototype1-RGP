@@ -100,7 +100,7 @@ public class butcherScr : MonoBehaviour
                     
                     navMeshAgent.SetDestination(GetRandPoint.Instance.GetRandomPoint(transform, Wanderradius));
                 }
-                m_ScoutingCone.SetActive(false);
+                //m_ScoutingCone.SetActive(false); //Have scotuing cone always on
                 currRest -= Time.deltaTime;
             }
             else
