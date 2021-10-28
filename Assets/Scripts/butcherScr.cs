@@ -177,8 +177,8 @@ public class butcherScr : MonoBehaviour
     }
     void butcherMove2()
     {
-        if(boy.GetComponent<Boy>().m_MusicPieceCollected == false)
-        {
+       // if(boy.GetComponent<Boy>().m_MusicPieceCollected == false)
+       // {
 
             if (!navMeshAgent.hasPath)
             {
@@ -210,14 +210,14 @@ public class butcherScr : MonoBehaviour
                 }
 
             }
-        }
-        else
-        {
-            targetPosTransform = boy.transform;
-            navMeshAgent.isStopped = false;
+      //  }
+       // else
+        //{
+        //    targetPosTransform = boy.transform;
+        //    navMeshAgent.isStopped = false;
             //print("agent waked");
-            navMeshAgent.destination = targetPosTransform.position;
-        }
+       //     navMeshAgent.destination = targetPosTransform.position;
+       // }
     }
     void FindWalkPoint()
     {
