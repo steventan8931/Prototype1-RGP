@@ -84,7 +84,7 @@ public class Boy : NewCharacterMotor
         if (m_IsRiding)
         {
             m_Animation.SetBool("Riding", true);
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 transform.parent = null;
                 transform.localRotation = Quaternion.Euler(Vector3.zero);
