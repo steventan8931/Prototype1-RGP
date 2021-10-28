@@ -811,12 +811,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "WASD -Move\r\nE - Climb up highlighted object (boy)\nT - Swap Characters
-    (if giant sleeping)\r\nSPACE - Jump (boy only)\r\nMouse move -Camera\r\nRight
-    click interact - giant pull, boy ride baby\nLeft click stop interact - giant
-    pull\r\nPush-walk into thing - giant\nTry to collect music box piece and return
-    it to music box to make giants sleeping and became controllable \nAvoid giants
-    view range and help the boy escape the giants house\n\n\n"
+  m_text: "Boy Controls:\nWASD -Move\r\nE - Climb up highlighted object \nT - Swap
+    Characters (if giant sleeping)\r\nSPACE - Jump \nMouse move -Camera\r\n\r\nGiant
+    controls:\r\nWASD -Move\r\nMouse move -Camera\r\nLeft click stop interact - (giant
+    pull, boy ride baby)\r\nPush - walk into highlight object\r\nRight click interact
+    - giant pull, boy ride baby\r\n\r\nTry to collect music box pieces and return
+    them to the music box within the first two levels to make giants sleep and control
+    them\r\nAvoid giants view range and help the boy escape the giants house"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -843,8 +844,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 13
+  m_fontSizeBase: 13
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
